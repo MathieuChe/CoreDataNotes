@@ -39,7 +39,7 @@ class AddNoteViewController: UIViewController {
         note.contents = contentsTextView.text
         
         // Pop View Controller
-        _=navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 

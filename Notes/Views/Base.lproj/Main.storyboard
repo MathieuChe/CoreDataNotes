@@ -18,6 +18,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-vI-j8a" userLabel="Notes View">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-s2-RnQ" userLabel="Message Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dMT-8f-faK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,9 +80,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="dMT-8f-faK" firstAttribute="leading" secondItem="Dqo-vI-j8a" secondAttribute="leading" id="2xf-VK-3Dd"/>
+                                    <constraint firstAttribute="bottom" secondItem="AQ4-s2-RnQ" secondAttribute="bottom" id="8ay-0V-KqU"/>
                                     <constraint firstAttribute="trailing" secondItem="dMT-8f-faK" secondAttribute="trailing" id="9Ad-6z-weu"/>
+                                    <constraint firstItem="AQ4-s2-RnQ" firstAttribute="leading" secondItem="Dqo-vI-j8a" secondAttribute="leading" id="BzC-bE-lQc"/>
+                                    <constraint firstItem="AQ4-s2-RnQ" firstAttribute="top" secondItem="Dqo-vI-j8a" secondAttribute="top" id="Rtb-vg-Z7B"/>
                                     <constraint firstAttribute="bottom" secondItem="dMT-8f-faK" secondAttribute="bottom" id="Uwl-DZ-BEV"/>
                                     <constraint firstItem="dMT-8f-faK" firstAttribute="top" secondItem="Dqo-vI-j8a" secondAttribute="top" id="bJF-rj-ho8"/>
+                                    <constraint firstAttribute="trailing" secondItem="AQ4-s2-RnQ" secondAttribute="trailing" id="wDl-Dg-cjT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -97,6 +107,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messageLabel" destination="AQ4-s2-RnQ" id="Oe3-sn-01x"/>
                         <outlet property="tableView" destination="dMT-8f-faK" id="rzh-w3-iy8"/>
                         <segue destination="nrh-Rg-5yw" kind="show" identifier="UpdateNote" id="aWm-9R-CDu"/>
                     </connections>

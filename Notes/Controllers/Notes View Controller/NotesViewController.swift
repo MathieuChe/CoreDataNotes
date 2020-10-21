@@ -12,7 +12,8 @@ import CoreData
 class NotesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var messageLabel: UILabel!
+    
     // MARK: - Properties
     // instantiation of the Core Data manager in the view controller. It is no longer an optional
     private var coreDataManager = CoreDataManager(modelName: "Notes")
@@ -37,7 +38,6 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Notes"
-        
 //        setupView()
         
         // Fetching the notes from the persistent store by invoking another helper method, fetchNotes()
@@ -99,6 +99,7 @@ class NotesViewController: UIViewController {
         // Configure Fetch Request
         // The sortDescriptors property is an array, which means we could specify multiple sort descriptors. The sort descriptors are evaluated based on the order in which they appear in the array.
         // keypaths are a way of storing uninvoked references to properties, which is a fancy way of saying they refer to a property itself rather than to that property's value.
+        // Want to show the most recently updated note at the top of the table view
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Note.updatedAt), ascending: false)]
         
         // Perform Fetch Data
@@ -130,7 +131,7 @@ class NotesViewController: UIViewController {
     // Using the value of the hasNotes property to update the user interface
     private func updateView(){
         tableView.isHidden = !hasNotes
-//        messageLabel.isHidden = hasNotes
+        messageLabel.isHidden = hasNotes
     }
     
     private func setupNotificationHandling(){
@@ -149,7 +150,7 @@ class NotesViewController: UIViewController {
         // Helpers
         var notesDidChange = false
         
-        if let inserts = userInfo [NSInsertedObjectsKey] as? Set<NSManagedObject> {
+        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject> {
             for insert in inserts {
                 if let note = insert as? Note {
                     notes?.append(note)
@@ -260,6 +261,18 @@ extension NotesViewController: UITableViewDataSource {
         // utilisation of Note extension
         cell.updatedAtLabel.text = dateFormatter.string(from: note.updatedAtAsDate)
         return cell
+    }
+    
+    // For a deleting note we need to implement the method is tableView(_:commit:forRowAt:)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // Exiting early if the editingStyle's value isn't equal to delete
+        guard editingStyle == .delete else { return }
+        // Fetch Note
+        guard let note = notes?[indexPath.row] else { fatalError("Unexpected Index Path") }
+        // Delete Note
+        // To delete the managed object, we pass the note to the delete(_:) method of the managed object context to which the note belongs
+        // The implementation also works if we use coreDataManager.managedObjectContext.delete(note)
+        note.managedObjectContext?.delete(note)
     }
 }
 
