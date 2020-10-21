@@ -11,6 +11,7 @@ import CoreData
 
 class NotesViewController: UIViewController {
     
+    // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageLabel: UILabel!
     
