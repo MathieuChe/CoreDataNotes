@@ -38,6 +38,7 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Notes"
+        
 //        setupView()
         
         // Fetching the notes from the persistent store by invoking another helper method, fetchNotes()
@@ -68,28 +69,36 @@ class NotesViewController: UIViewController {
             
             // Initialize Note
             // It's possible cause in the .xcdatamodeld file, Note entity has its Codegen set up at Class Definition. It means entity became automatically a class
-            let note = Note(context: coreDataManager.managedObjectContext)
+//            let note = Note(context: coreDataManager.managedObjectContext)
                         
             // Configure Note
             // Why are the properties optionals? When a managed object is created, the value of each property is set to nil.
             // But it's really important to not add the interrogation mark because the value of each property will be set to nil and we do not want cause those properties are required. Do not forget optional boxes have been unchecked for the properties. Otherwise no save !!
-            note.title = "My Second Note"
-            note.createdAt = Date()
-            note.updatedAt = Date()
-                        
-            print(note)
+//            note.title = "My Second Note"
+//            note.createdAt = Date()
+//            note.updatedAt = Date()
+//
+//            print(note)
             
             // Pushing the managed object to the persistent store by saving the managed object context
             // Any changes we make to the managed object are only pushed to the persistent store if we save the managed object context the managed object belongs to
             // save() is a throwing method, we wrap it in a do-catch statement
-            do {
-                try coreDataManager.managedObjectContext.save()
-            } catch {
-                print("Unable to Save Managed Object Context")
-                print("\(error), \(error.localizedDescription)")
-            }
+//            do {
+//                try coreDataManager.managedObjectContext.save()
+//            } catch {
+//                print("Unable to Save Managed Object Context")
+//                print("\(error), \(error.localizedDescription)")
+//            }
         }
     }
+    
+    // Notify the view controller its view was added to a view hierarchy
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchNotes()
+    }
+    
     
     private func fetchNotes(){
         // First ingredient need is a fetch request.
@@ -98,9 +107,9 @@ class NotesViewController: UIViewController {
         
         // Configure Fetch Request
         // The sortDescriptors property is an array, which means we could specify multiple sort descriptors. The sort descriptors are evaluated based on the order in which they appear in the array.
-        // keypaths are a way of storing uninvoked references to properties, which is a fancy way of saying they refer to a property itself rather than to that property's value.
+        // Note.updatedAt is equal to "updatedAt
         // Want to show the most recently updated note at the top of the table view
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Note.updatedAt), ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
         
         // Perform Fetch Data
         // Never directly access the persistent store. Executing the fetch request using the MOC of the CD manager
@@ -111,6 +120,9 @@ class NotesViewController: UIViewController {
                 // Execute Fetch Request
                 // // Executing a fetch request is a throwing operation, so use try
                 let notes = try fetchRequest.execute()
+                
+                // Print the number of notes
+                print("notes: ", notes.count)
                 
                 // Update Notes
                 // self cause notes refer to the property of NotesViewController class
@@ -123,7 +135,6 @@ class NotesViewController: UIViewController {
                 let fetchError = error as NSError
                 print("Unable to Execute Fetch Request")
                 print("\(fetchError), \(fetchError.localizedDescription)")
-                    
             }
         }
     }
@@ -132,6 +143,7 @@ class NotesViewController: UIViewController {
     private func updateView(){
         tableView.isHidden = !hasNotes
         messageLabel.isHidden = hasNotes
+        messageLabel.text = "you don't have any note yet"
     }
     
     private func setupNotificationHandling(){
@@ -253,6 +265,8 @@ extension NotesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.reuseIdentifier, for: indexPath) as? NoteTableViewCell else {
             fatalError("Unexpected Index Path")
         }
+        
+        print("note: ",note)
         
         // Configure Cell
         cell.titleLabel.text = note.title
