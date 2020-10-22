@@ -52,4 +52,3 @@ class AddNoteViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
 }
-

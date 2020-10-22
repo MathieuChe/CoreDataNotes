@@ -290,5 +290,3 @@ extension NotesViewController: UITableViewDataSource {
         note.managedObjectContext?.delete(note)
     }
 }
-
-

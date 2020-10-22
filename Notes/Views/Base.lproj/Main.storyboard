@@ -10,7 +10,6 @@
         <!--Notes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" userLabel="Notes View Controller" customClass="NotesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -73,6 +72,7 @@
                                                     <outlet property="contentsLabel" destination="Kla-hK-oHn" id="ClX-zf-VuW"/>
                                                     <outlet property="titleLabel" destination="keB-MW-t5S" id="ZwH-Qd-cg1"/>
                                                     <outlet property="updatedAtLabel" destination="tTC-hd-iKY" id="XJp-3j-29Z"/>
+                                                    <segue destination="nrh-Rg-5yw" kind="show" identifier="UpdateNote" id="ZPx-Ma-KNQ"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -114,9 +114,9 @@
                     <connections>
                         <outlet property="messageLabel" destination="AQ4-s2-RnQ" id="Oe3-sn-01x"/>
                         <outlet property="tableView" destination="dMT-8f-faK" id="rzh-w3-iy8"/>
-                        <segue destination="nrh-Rg-5yw" kind="show" identifier="UpdateNote" id="aWm-9R-CDu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="103.79464285714285"/>
         </scene>
@@ -190,7 +190,7 @@
         <!--Note View Controller-->
         <scene sceneID="5Hx-Nq-e4W">
             <objects>
-                <viewController id="nrh-Rg-5yw" customClass="NoteViewController" sceneMemberID="viewController">
+                <viewController id="nrh-Rg-5yw" customClass="NoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6r9-Q1-lzp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
