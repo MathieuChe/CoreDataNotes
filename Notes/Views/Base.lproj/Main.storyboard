@@ -224,11 +224,22 @@
                     <connections>
                         <outlet property="contentsTextView" destination="fSL-4M-Vsr" id="Hdb-Pg-wIR"/>
                         <outlet property="titleTextField" destination="efh-kS-vFz" id="v5B-Vj-iDU"/>
+                        <segue destination="9Um-X1-WTt" kind="show" identifier="NoteToCategories" id="TEO-C7-rM1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYK-Id-77Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1851" y="671"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="ZKw-mW-aKO">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CategoriesViewController" storyboardName="Categories" referencedIdentifier="Categories" id="9Um-X1-WTt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ydK-UG-NJ1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNG-ga-r8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="622"/>
         </scene>
     </scenes>
 </document>

@@ -11,6 +11,8 @@ import CoreData
 
 class AddNoteViewController: UIViewController {
     
+    
+    
     // MARK: - Properties
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
@@ -18,6 +20,10 @@ class AddNoteViewController: UIViewController {
     // MARK: -
     
     var managedObjectContext: NSManagedObjectContext?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     // Creating and populating a note when the user taps the Save button
     // But this save function doesn't push yet the Managed Object Context to the Persistent Store.

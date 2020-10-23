@@ -19,6 +19,8 @@
 		4E21B618253455A1006261B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E21B616253455A1006261B8 /* LaunchScreen.storyboard */; };
 		4E21B62A25345B6A006261B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21B62925345B6A006261B8 /* CoreDataManager.swift */; };
 		4E21B62E25349885006261B8 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E21B62C25349885006261B8 /* Notes.xcdatamodeld */; };
+		4E4197BA2542E43100997623 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E4197B92542E43100997623 /* Categories.storyboard */; };
+		4E4197BD254304B300997623 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4197BC254304B300997623 /* CategoriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4E21B619253455A1006261B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E21B62925345B6A006261B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4E21B62D25349885006261B8 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
+		4E4197B92542E43100997623 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
+		4E4197BC254304B300997623 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		4E21B6202534561C006261B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4E4197BB2543049000997623 /* Categories View Controller */,
 				4E14AF3225399DFA007CB496 /* Note Table View Cell */,
 				4E21B624253458E8006261B8 /* Notes View Controller */,
 				4E11A8A42536F2900051FC48 /* Add Note View Controller */,
@@ -129,6 +134,7 @@
 			children = (
 				4E21B611253455A0006261B8 /* Main.storyboard */,
 				4E21B616253455A1006261B8 /* LaunchScreen.storyboard */,
+				4E4197B92542E43100997623 /* Categories.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +178,14 @@
 			);
 			name = "Core Data";
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		4E4197BB2543049000997623 /* Categories View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E4197BC254304B300997623 /* CategoriesViewController.swift */,
+			);
+			path = "Categories View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +248,7 @@
 			files = (
 				4E21B618253455A1006261B8 /* LaunchScreen.storyboard in Resources */,
 				4E21B615253455A1006261B8 /* Assets.xcassets in Resources */,
+				4E4197BA2542E43100997623 /* Categories.storyboard in Resources */,
 				4E21B613253455A0006261B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +264,7 @@
 				4E21B62E25349885006261B8 /* Notes.xcdatamodeld in Sources */,
 				4E11A8A62536F2AE0051FC48 /* AddNoteViewController.swift in Sources */,
 				4E14AF3C2539ECDD007CB496 /* Note.swift in Sources */,
+				4E4197BD254304B300997623 /* CategoriesViewController.swift in Sources */,
 				4E1D7BFA253D84EE003474DA /* NoteViewController.swift in Sources */,
 				4E14AF392539C77B007CB496 /* NoteTableViewCell.swift in Sources */,
 				4E21B60C253455A0006261B8 /* AppDelegate.swift in Sources */,
