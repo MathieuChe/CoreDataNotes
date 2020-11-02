@@ -77,16 +77,11 @@ class NotesViewController: UIViewController {
         
         title = "Notes"
         
-        //        setupView()
-        
         // Fetching the notes from the persistent store by invoking another helper method, fetchNotes()
         
         fetchNotes()
-        
-        //        setupNotificationHandling()
-        
+                
         updateView()
-        
         
         // Every managed object has an entity description, an instance of the NSEntityDescription class.
         
@@ -380,6 +375,10 @@ extension NotesViewController: NSFetchedResultsControllerDelegate {
                 
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
+            
+        @unknown default:
+            fatalError("Undefined error")
+            
         }
     }
     

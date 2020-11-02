@@ -10,7 +10,7 @@
         <!--Categories View Controller-->
         <scene sceneID="Tsz-oQ-l8L">
             <objects>
-                <viewController storyboardIdentifier="Categories" id="0LP-v9-P85" customClass="CategoriesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0LP-v9-P85" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tVO-Ig-oRf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0LP-v9-P85" id="TLm-Ye-oyF"/>
+                                    <outlet property="delegate" destination="0LP-v9-P85" id="cgg-R6-pJn"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -63,7 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WZF-7e-aNj"/>
                     <connections>
-                        <outlet property="messageLabel" destination="ScQ-eS-2w7" id="Uf2-pg-Bhu"/>
+                        <outlet property="messageLabel" destination="ScQ-eS-2w7" id="Psw-Jy-Vc8"/>
                         <outlet property="tableView" destination="vs5-Yi-yBL" id="b6U-Ya-fJ6"/>
                         <segue destination="rtS-oL-chF" kind="show" identifier="AddCategory" id="l0S-Za-U1h"/>
                         <segue destination="0AB-dp-LNn" kind="show" identifier="UpdateCategory" id="SiM-Uw-hiw"/>

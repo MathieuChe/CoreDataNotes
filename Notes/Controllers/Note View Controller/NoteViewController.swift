@@ -16,6 +16,7 @@ class NoteViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     // MARK: -
     // Every stored property of a class or struct needs to have a valid value by the time the instance is created. This leaves us no option but to use an optional
@@ -25,6 +26,12 @@ class NoteViewController: UIViewController {
         title = "Edit Note"
         
         setupView()
+        
+        update()
+    }
+    
+    private func update(){
+        categoryLabel.text = "No category yet"
     }
     
     // Invoking two other helper methods
@@ -52,5 +59,8 @@ class NoteViewController: UIViewController {
         }
         note?.updatedAt = Date()
         note?.contents = contentsTextView.text
+    }
+    @IBAction func editButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "NoteToCategories", sender: self)
     }
 }
