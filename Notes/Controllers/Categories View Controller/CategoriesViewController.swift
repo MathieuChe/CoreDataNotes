@@ -194,8 +194,6 @@ extension CategoriesViewController: UITableViewDataSource {
         
         // To delete the managed object, we pass the note to the delete(_:) method of the managed object context to which the note belongs
         
-        
-        
         // Delete Category
         note?.managedObjectContext?.delete(currentCategory)
     }

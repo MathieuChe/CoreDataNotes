@@ -105,10 +105,44 @@
                     <view key="view" contentMode="scaleToFill" id="ZfJ-i4-xFJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-b6-JW1" userLabel="Name Text Field">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4qg-Nu-FQT" userLabel="Content Text View">
+                                <rect key="frame" x="20" y="162" width="374" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OIh-mw-kyH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4qg-Nu-FQT" firstAttribute="top" secondItem="tfy-b6-JW1" secondAttribute="bottom" constant="20" id="2Lw-cZ-VN0"/>
+                            <constraint firstItem="tfy-b6-JW1" firstAttribute="top" secondItem="OIh-mw-kyH" secondAttribute="top" constant="20" id="BTy-iF-1pq"/>
+                            <constraint firstItem="tfy-b6-JW1" firstAttribute="leading" secondItem="OIh-mw-kyH" secondAttribute="leading" constant="20" id="KD2-41-O6E"/>
+                            <constraint firstItem="OIh-mw-kyH" firstAttribute="trailing" secondItem="tfy-b6-JW1" secondAttribute="trailing" constant="20" id="Zpx-AR-M4p"/>
+                            <constraint firstItem="4qg-Nu-FQT" firstAttribute="bottom" secondItem="OIh-mw-kyH" secondAttribute="bottom" id="dKw-Pb-VPC"/>
+                            <constraint firstItem="OIh-mw-kyH" firstAttribute="trailing" secondItem="4qg-Nu-FQT" secondAttribute="trailing" constant="20" id="j6P-od-zxq"/>
+                            <constraint firstItem="4qg-Nu-FQT" firstAttribute="top" secondItem="tfy-b6-JW1" secondAttribute="bottom" constant="20" id="jwI-1T-RLx"/>
+                            <constraint firstItem="4qg-Nu-FQT" firstAttribute="leading" secondItem="OIh-mw-kyH" secondAttribute="leading" constant="20" id="sbu-yK-3Ct"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9bK-nV-b4Y"/>
+                    <navigationItem key="navigationItem" id="9bK-nV-b4Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RhJ-Zs-Vc2">
+                            <connections>
+                                <action selector="saveCategory:" destination="rtS-oL-chF" id="peP-3G-9Kd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentTextField" destination="4qg-Nu-FQT" id="zPB-fL-70x"/>
+                        <outlet property="nameTextField" destination="tfy-b6-JW1" id="1PS-Au-ArY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0U-kx-FPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,6 +168,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
