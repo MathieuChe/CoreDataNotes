@@ -212,6 +212,7 @@ extension CategoriesViewController: UITableViewDelegate {
         // Update Note
         note?.category = category
         
+        
         // Pop View Controller From Navigation Stack
         let _ = navigationController?.popViewController(animated: true)
         

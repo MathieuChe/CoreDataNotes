@@ -38,7 +38,7 @@ class CategoryViewController: UIViewController {
     // We don’t even need a save button. We simply update the note in the viewWillDisappear(_:)
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Update Note
+        // Update Category
         if let name = nameTextField.text, !name.isEmpty{
             category?.name = name
         }
