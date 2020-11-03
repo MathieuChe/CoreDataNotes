@@ -12,6 +12,8 @@ class CategoryTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "CategoryTableViewCell"
     
+    // MARK: - Properties
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     override class func awakeFromNib() {

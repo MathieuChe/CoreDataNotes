@@ -11,7 +11,11 @@ import CoreData
 
 class CategoryViewController: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet private weak var nameTextField: UITextField!
+    
+    //MARK: - Life Cycle
     
     var category: Category?
             

@@ -18,7 +18,7 @@ class NoteViewController: UIViewController {
     @IBOutlet private weak var contentsTextView: UITextView!
     @IBOutlet private weak var categoryLabel: UILabel!
     
-    // MARK: -
+    // MARK: - Life Cycle
     // Every stored property of a class or struct needs to have a valid value by the time the instance is created. This leaves us no option but to use an optional
     var note: Note?
     
@@ -60,6 +60,8 @@ class NoteViewController: UIViewController {
         note?.updatedAt = Date()
         note?.contents = contentsTextView.text
     }
+    
+    // IBAction to performSegue to Storyboard Reference
     @IBAction func editButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "NoteToCategories", sender: self)
     }

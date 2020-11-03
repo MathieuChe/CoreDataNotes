@@ -25,6 +25,7 @@ class AddCategoryViewController: UIViewController {
     }
     @IBAction func saveCategory(_ sender: UIBarButtonItem) {
         
+        //Get the managedObjectContext from note
         guard let managedObjectContext = self.note?.managedObjectContext else {return}
         
         // Create Category
