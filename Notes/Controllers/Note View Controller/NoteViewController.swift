@@ -101,8 +101,27 @@ class NoteViewController: UIViewController {
         note?.contents = contentsTextView.text
     }
     
+    
     // IBAction to performSegue to Storyboard Reference
     @IBAction func editButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "NoteToCategories", sender: self)
+    }
+    
+    // Injection de la note
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else {return}
+        
+        switch identifier {
+        
+        case "NoteToCategories":
+            
+            guard let nextVC = segue.destination as? CategoriesViewController else {return}
+            
+            nextVC.note = note
+            
+        default:
+            break
+        }
     }
 }

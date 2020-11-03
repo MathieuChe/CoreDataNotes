@@ -124,7 +124,7 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             
             // Configure Destination
             
-            destination.managedObjectContext = note?.managedObjectContext
+            destination.note = note
             
         case "UpdateCategory":
             
