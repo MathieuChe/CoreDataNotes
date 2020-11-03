@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 class AddCategoryViewController: UIViewController {
-            
+    
+    var note: Note?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

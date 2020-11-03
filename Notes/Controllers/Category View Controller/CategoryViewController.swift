@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class CategoryViewController: UIViewController {
+    
+    var note: Note?
             
     override func viewDidLoad() {
         

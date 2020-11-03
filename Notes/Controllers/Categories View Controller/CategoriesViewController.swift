@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class CategoriesViewController: UIViewController, NSFetchedResultsControllerDelegate {
-   
+    
     // MARK: - Properties
     
     // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,34 +33,6 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         super.viewDidLoad()
         
         updated()
-//
-//        // Initialize the entities from Category
-//        if let entityDescription = NSEntityDescription.entity(forEntityName: "Category", in: coreDataManager.managedObjectContext) {
-//
-//            // Print the entity name. It should be Note.
-//
-//            print(entityDescription.name ?? "No Name")
-//
-//            // Print the properties of the entity name.
-//
-//            print(entityDescription.properties)
-//
-//            // Initiatilize the Managed Object
-//            let category = NSManagedObject(entity: entityDescription, insertInto: coreDataManager.managedObjectContext)
-//
-//            print(category)
-//
-//            category.setValue("My First Category", forKey: "name")
-//
-//            do {
-//                try coreDataManager.managedObjectContext.save()
-//            }catch{
-//                print("Unable to save the category")
-//                print("\(error), \(error.localizedDescription)")
-//            }
-//
-//        }
-        
     }
     
     private func updated() {
@@ -76,7 +48,7 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         guard let managedObjectContext = self.note?.managedObjectContext else {
             
             fatalError("No Managed Object Context Found")
-    
+            
         }
         
         // Create Fetch Request
@@ -91,9 +63,8 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         
         fetchedResultsController.delegate = self
         
-        
         return fetchedResultsController
-                
+        
     } ()
     
     // Implementing a computed property by asking the fetched results controller for the value of its fetchedObjects property
@@ -105,8 +76,33 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         return fetchedObjects.count > 0
     }
     
+    // For updates, need to fetch the table view cell that corresponds with the updated managed object and update its contents by using helper method, configure(_:at:)
+    
+    func configure(_ cell: CategoryTableViewCell, at indexPath: IndexPath) {
+        
+        // Fetch Note
+        
+        let category = fetchedResultsController.object(at: indexPath)
+        
+        // Configure Cell
+        
+        // utilisation of Note extension
+        
+        cell.nameLabel.text = category.name
+        
+        if note?.category == category {
+            
+            cell.nameLabel.textColor = .yellow
+            
+        }else{
+            
+            cell.nameLabel.textColor = .black
+            
+        }
+    }
+    
     // MARK: - Segue
-
+    
     // When the segue that leads to the add note view controller is about to be performed, we set the managedObjectContext property of the add note view controller.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -116,17 +112,16 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-            
-            // Identifiant Segue
-            
+        
+        // Identifiant Segue
+        
         case "AddCategory":
             
             guard let destination = segue.destination as? AddCategoryViewController else { return }
             
             // Configure Destination
             
-//            destination.managedObjectContext = note?.managedObjectContext
-            
+            destination.managedObjectContext = note?.managedObjectContext
             
         case "UpdateCategory":
             
@@ -138,13 +133,90 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             
             let note = fetchedResultsController.object(at: indexPath)
             
-            // Configure Destination
-            
-            
+        // Configure Destination
+        
+        
         default:
             break
         }
     }
-    
-    
 }
+
+// MARK: - UITableViewDataSource
+
+
+extension CategoriesViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        guard let sections = fetchedResultsController.sections else { return 0 }
+        
+        return sections.count
+        
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // The application returns the number of notes if it has notes to display, otherwise it returns 0
+        
+        guard let section = fetchedResultsController.sections?[section] else { return 0 }
+        
+        return section.numberOfObjects
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Dequeue Reusable Cell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.reuseIdentifier, for: indexPath) as? CategoryTableViewCell else {
+            
+            fatalError("Unexpected Index Path")
+        }
+        
+        // Configure Cell by using helper method, configure(_:at:)
+        
+        configure(cell, at: indexPath)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard editingStyle == .delete else { return }
+        
+        // Fetch Note
+        
+        let category = fetchedResultsController.object(at: indexPath)
+        
+        // Delete Note
+        
+        // To delete the managed object, we pass the note to the delete(_:) method of the managed object context to which the note belongs
+        
+        
+        
+        // Delete Category
+        note?.managedObjectContext?.delete(category)
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension CategoriesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Fetch Category
+        let category = fetchedResultsController.object(at: indexPath)
+        
+        // Update Note
+        note?.category = category
+        
+        // Pop View Controller From Navigation Stack
+        let _ = navigationController?.popViewController(animated: true)
+        
+    }
+}
+
+
+
+

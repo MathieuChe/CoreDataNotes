@@ -23,6 +23,7 @@
 		4E4197BD254304B300997623 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4197BC254304B300997623 /* CategoriesViewController.swift */; };
 		4E4197C02543270800997623 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4197BF2543270800997623 /* AddCategoryViewController.swift */; };
 		4E88F4FC254DC7ED0025AD98 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88F4FB254DC7ED0025AD98 /* CategoryViewController.swift */; };
+		F1D692CF25516883000DA1D9 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692CE25516883000DA1D9 /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4E4197BC254304B300997623 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4E4197BF2543270800997623 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		4E88F4FB254DC7ED0025AD98 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		F1D692CE25516883000DA1D9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		4E21B6202534561C006261B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1D692CD25516866000DA1D9 /* Category Table View Cell */,
 				4E88F4FA254DC7CA0025AD98 /* Category View Controller */,
 				4E4197BE254326F000997623 /* Add Category View Controller */,
 				4E4197BB2543049000997623 /* Categories View Controller */,
@@ -210,6 +213,14 @@
 			path = "Category View Controller";
 			sourceTree = "<group>";
 		};
+		F1D692CD25516866000DA1D9 /* Category Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F1D692CE25516883000DA1D9 /* CategoryTableViewCell.swift */,
+			);
+			path = "Category Table View Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +304,7 @@
 				4E21B60C253455A0006261B8 /* AppDelegate.swift in Sources */,
 				4E21B62A25345B6A006261B8 /* CoreDataManager.swift in Sources */,
 				4E21B60E253455A0006261B8 /* SceneDelegate.swift in Sources */,
+				F1D692CF25516883000DA1D9 /* CategoryTableViewCell.swift in Sources */,
 				4E4197C02543270800997623 /* AddCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
