@@ -11,6 +11,12 @@ import CoreData
 
 class AddCategoryViewController: UIViewController {
     
+    // MARK: - Properties
+
+    
+    
+    //MARK: - Life Cycle
+    
     var note: Note?
     
     override func viewDidLoad() {

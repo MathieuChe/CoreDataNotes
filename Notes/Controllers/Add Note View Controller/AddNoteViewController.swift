@@ -14,8 +14,8 @@ class AddNoteViewController: UIViewController {
     
     
     // MARK: - Properties
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentsTextView: UITextView!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var contentsTextView: UITextView!
     
     // MARK: -
     

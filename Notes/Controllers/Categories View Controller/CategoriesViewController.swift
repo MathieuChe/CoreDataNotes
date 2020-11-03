@@ -17,8 +17,11 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
     
     private var coreDataManager = CoreDataManager(modelName: "Notes")
     
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: - Properties
+    
+    // Private because properties are not accessible from other files
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: -
     
@@ -32,10 +35,10 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
         
         super.viewDidLoad()
         
-        updated()
+        updatedMessageLabelText()
     }
     
-    private func updated() {
+    private func updatedMessageLabelText() {
         
         messageLabel.text = "No category yet"
         
@@ -131,7 +134,7 @@ class CategoriesViewController: UIViewController, NSFetchedResultsControllerDele
             
             // Fetch Note
             
-            let note = fetchedResultsController.object(at: indexPath)
+            let currentCategory = fetchedResultsController.object(at: indexPath)
             
         // Configure Destination
         
@@ -185,7 +188,7 @@ extension CategoriesViewController: UITableViewDataSource {
         
         // Fetch Note
         
-        let category = fetchedResultsController.object(at: indexPath)
+        let currentCategory = fetchedResultsController.object(at: indexPath)
         
         // Delete Note
         
@@ -194,7 +197,7 @@ extension CategoriesViewController: UITableViewDataSource {
         
         
         // Delete Category
-        note?.managedObjectContext?.delete(category)
+        note?.managedObjectContext?.delete(currentCategory)
     }
 }
 

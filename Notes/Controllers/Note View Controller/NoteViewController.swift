@@ -14,9 +14,9 @@ import CoreData
 class NoteViewController: UIViewController {
     
     // MARK: - Properties
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentsTextView: UITextView!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var contentsTextView: UITextView!
+    @IBOutlet private weak var categoryLabel: UILabel!
     
     // MARK: -
     // Every stored property of a class or struct needs to have a valid value by the time the instance is created. This leaves us no option but to use an optional
@@ -27,10 +27,10 @@ class NoteViewController: UIViewController {
         
         setupView()
         
-        update()
+        updateCategoryLabelText()
     }
     
-    private func update(){
+    private func updateCategoryLabelText(){
         categoryLabel.text = "No category yet"
     }
     
