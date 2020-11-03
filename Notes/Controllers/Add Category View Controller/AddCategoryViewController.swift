@@ -13,9 +13,7 @@ class AddCategoryViewController: UIViewController {
     
     // MARK: - Properties
 
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var contentTextField: UITextView!
-    
+    @IBOutlet private weak var nameTextField: UITextField!    
     
     //MARK: - Life Cycle
     
