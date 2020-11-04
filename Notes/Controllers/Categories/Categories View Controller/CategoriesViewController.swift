@@ -90,7 +90,7 @@ class CategoriesViewController: UIViewController {
     }
     
     
-    // MARK: - Segue
+    // MARK: - Navigation
     
     // When the segue that leads to the add note view controller is about to be performed, we set the managedObjectContext property of the add note view controller.
     
@@ -210,7 +210,7 @@ extension CategoriesViewController: NSFetchedResultsControllerDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         @unknown default:
-            fatalError("Got some problems with the controller")
+            fatalError("Undefined error")
         }
     }
 }
@@ -302,10 +302,10 @@ extension CategoriesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Fetch Category
-        let category = fetchedResultsController.object(at: indexPath)
+        let currentCategory = fetchedResultsController.object(at: indexPath)
         
         // Update Note
-        note?.category = category
+        note?.category = currentCategory
         
         
         // Pop View Controller From Navigation Stack

@@ -25,34 +25,24 @@ class AddCategoryViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Add Category"
-        
-        setupView()
-        
+                
     }
+    
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         
         // Show Keyboard
         nameTextField.becomeFirstResponder()
     }
     
-    // MARK: - View Methods
-    fileprivate func setupView() {
-        setupBarButtonItems()
-    }
-    
-    // MARK: -
-    private func setupBarButtonItems() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveCategory(sender:)))
-    }
-    
     
     // MARK: - Actions
     
-    @objc func saveCategory(sender: UIBarButtonItem) {
-        
+    @IBAction func saveCategory(_ sender: UIBarButtonItem) {
         //Get the managedObjectContext from note
         guard let managedObjectContext = managedObjectContext else {return}
+        // Making sure the title text field isn’t empty. Remember that the name property of the Category entity is not a required property. It can be empty but we don't want.
         guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(with: "Name Missing", and: "Your category doesn't have a name.")
             return
@@ -67,4 +57,5 @@ class AddCategoryViewController: UIViewController {
         // Pop View Controller
         _ = navigationController?.popViewController(animated: true)
     }
+        
 }

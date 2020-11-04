@@ -29,11 +29,13 @@ class NoteViewController: UIViewController {
     // MARK: -
     
     // Every stored property of a class or struct needs to have a valid value by the time the instance is created. This leaves us no option but to use an optional
+    
     var note: Note?
     
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
+        
         title = "Edit Note"
         
         setupView()
@@ -77,6 +79,7 @@ class NoteViewController: UIViewController {
             guard let destinationViewController = segue.destination as? TagsViewController else {return}
             
             // Configure View Controller
+            
             destinationViewController.note = note
             
         default:
@@ -86,7 +89,7 @@ class NoteViewController: UIViewController {
     
     // MARK: - View Methods
     
-    // Invoking two other helper methods
+    // Invoking many other methods
     fileprivate func setupView(){
         setupCategoryLabelText()
         setupTitleTextField()

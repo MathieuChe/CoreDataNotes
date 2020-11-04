@@ -201,7 +201,7 @@
                     <navigationItem key="navigationItem" id="9bK-nV-b4Y">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="RhJ-Zs-Vc2">
                             <connections>
-                                <action selector="saveCategory:" destination="rtS-oL-chF" id="peP-3G-9Kd"/>
+                                <action selector="saveCategory:" destination="rtS-oL-chF" id="xST-Bb-n7W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

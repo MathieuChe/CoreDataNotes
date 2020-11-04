@@ -20,11 +20,15 @@ class NotesViewController: UIViewController {
     
     // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
+    // MARK: - Properties
+
     @IBOutlet private weak var tableView: UITableView!
-    
     @IBOutlet private weak var messageLabel: UILabel!
     
-    // MARK: - Properties
+    // MARK: -
+    
+    //Estimate the RowHeight of the cell
+    private let estimatedRowHeight = CGFloat(44.0)
     
     // instantiation of the Core Data manager in the view controller. It is no longer an optional
     
@@ -72,8 +76,6 @@ class NotesViewController: UIViewController {
         return fetchedObjects.count > 0
     }
     
-    
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -84,30 +86,14 @@ class NotesViewController: UIViewController {
         
         // Fetching the notes from the persistent store by invoking another helper method, fetchNotes()
         
+        setupView()
+        
         fetchNotes()
                 
         updateView()
         
-        // Every managed object has an entity description, an instance of the NSEntityDescription class.
-        
-        // The entity description is accessible through the entity property of the managed object.
-        
-        // The entity description refers to a specific entity in the data model.
-        
-        // Need to use the managed object context as a proxy to access the managed object model cause we rarely, if ever, directly access the managed object model of the Core Data stack.
-        
-        if let entityDescription = NSEntityDescription.entity(forEntityName: "Note", in: coreDataManager.managedObjectContext) {
-            
-            // Print the entity name. It should be Note.
-            
-            print(entityDescription.name ?? "No Name")
-            
-            // Print the properties of the entity name.
-            
-            print(entityDescription.properties)
-            
-        }
     }
+    
     
     // Notify the view controller its view was added to a view hierarchy
     
@@ -118,6 +104,84 @@ class NotesViewController: UIViewController {
         fetchNotes()
     }
     
+    
+    // MARK: - Navigation
+
+    // When the segue that leads to the add note view controller is about to be performed, we set the managedObjectContext property of the add note view controller.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        // Checked the identifier segue with a switch case
+        
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+            
+            // Identifiant Segue
+            
+        case segueAddNoteViewController:
+            guard let destinationViewController = segue.destination as? AddNoteViewController else { return }
+            
+            // Configure Destination
+            
+            destinationViewController.managedObjectContext = coreDataManager.managedObjectContext
+            
+        case segueNoteViewController:
+            guard let destinationViewController = segue.destination as? NoteViewController else { return }
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            // Fetch Note
+            
+            let note = fetchedResultsController.object(at: indexPath)
+            
+            // Configure Destination
+            
+            destinationViewController.note = note
+            
+        default:
+            break
+        }
+    }
+    
+    // MARK: - View Methods
+
+    fileprivate func setupView() {
+        
+        setupMessageLabel()
+        
+        setupTableView()
+    }
+    
+    // Using the value of the hasNotes property to update the user interface
+    
+    private func updateView(){
+        
+        tableView.isHidden = !hasNotes
+        
+        messageLabel.isHidden = hasNotes
+                
+    }
+    
+    // MARK: -
+
+    private func setupMessageLabel() {
+        
+        messageLabel.text = "You don't have any notes yet."
+    }
+    
+    // MARK: -
+
+    // Setup the tableView
+    private func setupTableView() {
+        tableView.isHidden = true
+        tableView.separatorInset = .zero
+        tableView.estimatedRowHeight = estimatedRowHeight
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    
+    // MARK: - Helper Methods
     
     private func fetchNotes(){
         
@@ -142,133 +206,6 @@ class NotesViewController: UIViewController {
             
         }
     }
-    
-    // Using the value of the hasNotes property to update the user interface
-    
-    private func updateView(){
-        
-        tableView.isHidden = !hasNotes
-        
-        messageLabel.isHidden = hasNotes
-        
-        messageLabel.text = "you don't have any note yet"
-        
-    }
-    
-// MARK: - Segue
-
-    // When the segue that leads to the add note view controller is about to be performed, we set the managedObjectContext property of the add note view controller.
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
-        // Checked the identifier segue with a switch case
-        
-        guard let identifier = segue.identifier else { return }
-        
-        switch identifier {
-            
-            // Identifiant Segue
-            
-        case segueAddNoteViewController:
-            guard let destination = segue.destination as? AddNoteViewController else { return }
-            
-            // Configure Destination
-            
-            destination.managedObjectContext = coreDataManager.managedObjectContext
-            
-        case segueNoteViewController:
-            guard let destination = segue.destination as? NoteViewController else { return }
-            
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            
-            // Fetch Note
-            
-            let note = fetchedResultsController.object(at: indexPath)
-            
-            // Configure Destination
-            
-            destination.note = note
-            
-        default:
-            break
-        }
-    }
-}
-
-
-// MARK: - TableView Data Source
-
-extension NotesViewController: UITableViewDataSource {
-    
-    
-    // A fetched results controller is perfectly capable of managing hierarchical data. That’s why it’s such a good fit for table and collection views. Even though we’re not splitting the notes up into sections, we can still ask the fetched results controller for the sections it manages.
-    
-    // Updating the implementation of the UITableViewDataSource protocol.
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        guard let sections = fetchedResultsController.sections else { return 0 }
-        
-        return sections.count
-        
-    }
-    
-    // The numberOfObjects property tells us exactly how many managed object the section contains
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // The application returns the number of notes if it has notes to display, otherwise it returns 0
-        
-        guard let section = fetchedResultsController.sections?[section] else { return 0 }
-        
-        return section.numberOfObjects
-        
-    }
-    
-    // First fetching the note that corresponds with the value of the indexPath parameter.
-    
-    // Then dequeuing a note table view cell
-    
-    // And populating the table view cell with the data of the note.
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Dequeue Reusable Cell
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.reuseIdentifier, for: indexPath) as? NoteTableViewCell else {
-            
-            fatalError("Unexpected Index Path")
-        }
-        
-        // Configure Cell by using helper method, configure(_:at:)
-        
-        configure(cell, at: indexPath)
-        
-        return cell
-        
-    }
-    
-    // For a deleting note we need to implement the method is tableView(_:commit:forRowAt:)
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        // Exiting early if the editingStyle's value isn't equal to delete
-        
-        guard editingStyle == .delete else { return }
-        
-        // Fetch Note
-        
-        let note = fetchedResultsController.object(at: indexPath)
-        
-        // Delete Note
-        
-        // To delete the managed object, we pass the note to the delete(_:) method of the managed object context to which the note belongs
-        
-        // The implementation also works if we use coreDataManager.managedObjectContext.delete(note)
-        
-        coreDataManager.managedObjectContext.delete(note)
-    }
-    
 }
 
 // MARK: - Fetched Results Controller Delegate
@@ -367,6 +304,61 @@ extension NotesViewController: NSFetchedResultsControllerDelegate {
             
         }
     }
+}
+
+
+// MARK: - TableView Data Source
+
+extension NotesViewController: UITableViewDataSource {
+    
+    
+    // A fetched results controller is perfectly capable of managing hierarchical data. That’s why it’s such a good fit for table and collection views. Even though we’re not splitting the notes up into sections, we can still ask the fetched results controller for the sections it manages.
+    
+    // Updating the implementation of the UITableViewDataSource protocol.
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        guard let sections = fetchedResultsController.sections else { return 0 }
+        
+        return sections.count
+        
+    }
+    
+    // The numberOfObjects property tells us exactly how many managed object the section contains
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // The application returns the number of notes if it has notes to display, otherwise it returns 0
+        
+        guard let section = fetchedResultsController.sections?[section] else { return 0 }
+        
+        return section.numberOfObjects
+        
+    }
+    
+    // First fetching the note that corresponds with the value of the indexPath parameter.
+    
+    // Then dequeuing a note table view cell
+    
+    // And populating the table view cell with the data of the note.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Dequeue Reusable Cell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NoteTableViewCell.reuseIdentifier, for: indexPath) as? NoteTableViewCell else {
+            
+            fatalError("Unexpected Index Path")
+        }
+        
+        // Configure Cell by using helper method, configure(_:at:)
+        
+        configure(cell, at: indexPath)
+        
+        return cell
+        
+    }
+    
     
     // For updates, need to fetch the table view cell that corresponds with the updated managed object and update its contents by using helper method, configure(_:at:)
     
@@ -389,4 +381,40 @@ extension NotesViewController: NSFetchedResultsControllerDelegate {
         cell.updatedAtLabel.text = dateFormatter.string(from: note.updatedAtAsDate)
         
     }
+    
+    // For a deleting note we need to implement the method is tableView(_:commit:forRowAt:)
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Exiting early if the editingStyle's value isn't equal to delete
+        
+        guard editingStyle == .delete else { return }
+        
+        // Fetch Note
+        
+        let note = fetchedResultsController.object(at: indexPath)
+        
+        // Delete Note
+        
+        // To delete the managed object, we pass the note to the delete(_:) method of the managed object context to which the note belongs
+        
+        // The implementation also works if we use coreDataManager.managedObjectContext.delete(note)
+        
+        coreDataManager.managedObjectContext.delete(note)
+    }
+    
 }
+
+// MARK: - TableView Delegate
+
+extension NotesViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Deselect the row after touching up
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
