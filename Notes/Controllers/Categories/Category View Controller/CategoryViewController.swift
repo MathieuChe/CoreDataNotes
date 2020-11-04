@@ -17,6 +17,7 @@ class CategoryViewController: UIViewController {
     
     // MARK: -
     
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet private weak var nameTextField: UITextField!
     
     // MARK: -

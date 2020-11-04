@@ -13,6 +13,11 @@ import CoreData
 
 class NotesViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private let segueNoteViewController = "UpdateNote"
+    private let segueAddNoteViewController = "AddNote"
+    
     // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
     @IBOutlet private weak var tableView: UITableView!
@@ -164,14 +169,14 @@ class NotesViewController: UIViewController {
             
             // Identifiant Segue
             
-        case "AddNote":
+        case segueAddNoteViewController:
             guard let destination = segue.destination as? AddNoteViewController else { return }
             
             // Configure Destination
             
             destination.managedObjectContext = coreDataManager.managedObjectContext
             
-        case "UpdateNote":
+        case segueNoteViewController:
             guard let destination = segue.destination as? NoteViewController else { return }
             
             guard let indexPath = tableView.indexPathForSelectedRow else { return }

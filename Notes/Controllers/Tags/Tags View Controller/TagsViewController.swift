@@ -12,13 +12,14 @@ import CoreData
 class TagsViewController: UIViewController {
 
     // MARK: - Properties
-    private let segueTagViewController = "SegueTagViewController"
-    private let segueAddTagViewController = "SegueAddTagViewController"
+    private let segueTagViewController = "UpdateTag"
+    private let segueAddTagViewController = "AddTag"
 
     // MARK: -
-    @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var tableView: UITableView!
 
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: -
     var note: Note?
 
@@ -113,7 +114,10 @@ class TagsViewController: UIViewController {
     }
 
     // MARK: - Actions
-    func add(sender: UIBarButtonItem) {
+    
+    // Argument of '#selector' refers to instance method 'save(sender:)' that is not exposed to Objective-C. Then add '@objc' to expose this instance method to Objective-C
+    
+    @objc func add(sender: UIBarButtonItem) {
         performSegue(withIdentifier: segueAddTagViewController, sender: self)
     }
 
@@ -153,6 +157,8 @@ extension TagsViewController: NSFetchedResultsControllerDelegate {
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
+        @unknown default:
+            fatalError("Undefined error")
         }
     }
 
@@ -196,7 +202,7 @@ extension TagsViewController: UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
 
         // Fetch Tag

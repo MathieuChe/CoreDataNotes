@@ -23,12 +23,13 @@
 		4E4197BD254304B300997623 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4197BC254304B300997623 /* CategoriesViewController.swift */; };
 		4E4197C02543270800997623 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4197BF2543270800997623 /* AddCategoryViewController.swift */; };
 		4E88F4FC254DC7ED0025AD98 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88F4FB254DC7ED0025AD98 /* CategoryViewController.swift */; };
+		F18F487A2552C3CA0053EDE4 /* Tags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18F48792552C3CA0053EDE4 /* Tags.storyboard */; };
 		F1D692CF25516883000DA1D9 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692CE25516883000DA1D9 /* CategoryTableViewCell.swift */; };
 		F1D692D42552A973000DA1D9 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692D32552A973000DA1D9 /* ColorViewController.swift */; };
 		F1D692DD2552AD1C000DA1D9 /* AddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692DC2552AD1C000DA1D9 /* AddTagViewController.swift */; };
 		F1D692E22552AD58000DA1D9 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692E12552AD58000DA1D9 /* TagViewController.swift */; };
 		F1D692E72552ADC0000DA1D9 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692E62552ADC0000DA1D9 /* TagsViewController.swift */; };
-		F1D692EB2552ADDC000DA1D9 /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692EA2552ADDC000DA1D9 /* TableViewCells.swift */; };
+		F1D692EB2552ADDC000DA1D9 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692EA2552ADDC000DA1D9 /* TagTableViewCell.swift */; };
 		F1D692EE2552AE49000DA1D9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692ED2552AE49000DA1D9 /* UIColor.swift */; };
 		F1D692F12552AEF3000DA1D9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692F02552AEF3000DA1D9 /* UIViewController.swift */; };
 		F1D692F42552AF66000DA1D9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D692F32552AF66000DA1D9 /* Category.swift */; };
@@ -53,12 +54,13 @@
 		4E4197BC254304B300997623 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4E4197BF2543270800997623 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		4E88F4FB254DC7ED0025AD98 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		F18F48792552C3CA0053EDE4 /* Tags.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tags.storyboard; sourceTree = "<group>"; };
 		F1D692CE25516883000DA1D9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F1D692D32552A973000DA1D9 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		F1D692DC2552AD1C000DA1D9 /* AddTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewController.swift; sourceTree = "<group>"; };
 		F1D692E12552AD58000DA1D9 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		F1D692E62552ADC0000DA1D9 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
-		F1D692EA2552ADDC000DA1D9 /* TableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		F1D692EA2552ADDC000DA1D9 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		F1D692ED2552AE49000DA1D9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F1D692F02552AEF3000DA1D9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F1D692F32552AF66000DA1D9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				4E21B611253455A0006261B8 /* Notes.storyboard */,
 				4E21B616253455A1006261B8 /* LaunchScreen.storyboard */,
 				4E4197B92542E43100997623 /* Categories.storyboard */,
+				F18F48792552C3CA0053EDE4 /* Tags.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,18 +298,18 @@
 		F1D692E42552AD6E000DA1D9 /* Tags View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F1D692E52552AD8B000DA1D9 /* Table View Cells */,
+				F1D692E52552AD8B000DA1D9 /* Tag Table View Cell */,
 				F1D692E62552ADC0000DA1D9 /* TagsViewController.swift */,
 			);
 			path = "Tags View Controller";
 			sourceTree = "<group>";
 		};
-		F1D692E52552AD8B000DA1D9 /* Table View Cells */ = {
+		F1D692E52552AD8B000DA1D9 /* Tag Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
-				F1D692EA2552ADDC000DA1D9 /* TableViewCells.swift */,
+				F1D692EA2552ADDC000DA1D9 /* TagTableViewCell.swift */,
 			);
-			path = "Table View Cells";
+			path = "Tag Table View Cell";
 			sourceTree = "<group>";
 		};
 		F1D692F62552B035000DA1D9 /* Supporting Files */ = {
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E21B618253455A1006261B8 /* LaunchScreen.storyboard in Resources */,
+				F18F487A2552C3CA0053EDE4 /* Tags.storyboard in Resources */,
 				4E21B615253455A1006261B8 /* Assets.xcassets in Resources */,
 				4E4197BA2542E43100997623 /* Categories.storyboard in Resources */,
 				4E21B613253455A0006261B8 /* Notes.storyboard in Resources */,
@@ -396,7 +400,7 @@
 				F1D692D42552A973000DA1D9 /* ColorViewController.swift in Sources */,
 				F1D692E72552ADC0000DA1D9 /* TagsViewController.swift in Sources */,
 				4E88F4FC254DC7ED0025AD98 /* CategoryViewController.swift in Sources */,
-				F1D692EB2552ADDC000DA1D9 /* TableViewCells.swift in Sources */,
+				F1D692EB2552ADDC000DA1D9 /* TagTableViewCell.swift in Sources */,
 				F1D692EE2552AE49000DA1D9 /* UIColor.swift in Sources */,
 				4E4197BD254304B300997623 /* CategoriesViewController.swift in Sources */,
 				4E1D7BFA253D84EE003474DA /* NoteViewController.swift in Sources */,

@@ -12,8 +12,8 @@ import CoreData
 class AddTagViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet var nameTextField: UITextField!
-
+    @IBOutlet weak var nameTextField: UITextField!
+    
     // MARK: -
     var managedObjectContext: NSManagedObjectContext?
 
@@ -40,11 +40,14 @@ class AddTagViewController: UIViewController {
 
     // MARK: -
     private func setupBarButtonItems() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(sender:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTag(sender:)))
     }
 
     // MARK: - Actions
-    func save(sender: UIBarButtonItem) {
+    
+    // Argument of '#selector' refers to instance method 'save(sender:)' that is not exposed to Objective-C. Then add '@objc' to expose this instance method to Objective-C
+    
+    @objc func saveTag(sender: UIBarButtonItem) {
         guard let managedObjectContext = managedObjectContext else { return }
         guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(with: "Name Missing", and: "Your tag doesn't have a name.")

@@ -43,13 +43,13 @@ class AddCategoryViewController: UIViewController {
     
     // MARK: -
     private func setupBarButtonItems() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(sender:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveCategory(sender:)))
     }
     
     
     // MARK: - Actions
     
-    @IBAction func saveCategory(_ sender: UIBarButtonItem) {
+    @objc func saveCategory(sender: UIBarButtonItem) {
         
         //Get the managedObjectContext from note
         guard let managedObjectContext = managedObjectContext else {return}

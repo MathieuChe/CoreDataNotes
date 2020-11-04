@@ -91,29 +91,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLh-xh-G5V" userLabel="Name Text Field">
-                                <rect key="frame" x="20" y="238" width="374" height="34"/>
+                                <rect key="frame" x="62" y="238" width="332" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLs-cT-3wv" userLabel="Color View">
+                                <rect key="frame" x="20" y="238" width="34" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KQ9-vX-sck"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KQ9-vX-sck" firstAttribute="trailing" secondItem="JLh-xh-G5V" secondAttribute="trailing" constant="20" id="7bZ-7y-NH4"/>
-                            <constraint firstItem="JLh-xh-G5V" firstAttribute="leading" secondItem="KQ9-vX-sck" secondAttribute="leading" constant="20" id="cLL-AW-K7G"/>
-                            <constraint firstItem="JLh-xh-G5V" firstAttribute="top" secondItem="KQ9-vX-sck" secondAttribute="top" constant="150" id="eTb-It-QXH"/>
+                            <constraint firstItem="JLh-xh-G5V" firstAttribute="top" secondItem="KQ9-vX-sck" secondAttribute="top" constant="150" id="8nn-k6-1OK"/>
+                            <constraint firstItem="JLh-xh-G5V" firstAttribute="leading" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="8" symbolic="YES" id="KDe-ne-ezI"/>
+                            <constraint firstAttribute="trailing" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="360" id="ZJT-kf-Qmc"/>
+                            <constraint firstItem="OLs-cT-3wv" firstAttribute="bottom" secondItem="JLh-xh-G5V" secondAttribute="bottom" id="dMl-VY-4JI"/>
+                            <constraint firstItem="OLs-cT-3wv" firstAttribute="top" secondItem="JLh-xh-G5V" secondAttribute="top" id="fX3-Cf-hXx"/>
                             <constraint firstItem="KQ9-vX-sck" firstAttribute="bottom" secondItem="JLh-xh-G5V" secondAttribute="bottom" constant="590" id="iwx-iD-fIp"/>
+                            <constraint firstItem="OLs-cT-3wv" firstAttribute="leading" secondItem="Ugb-L2-CfZ" secondAttribute="leadingMargin" id="jve-ZB-ptV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5cQ-lR-PKG"/>
                     <connections>
+                        <outlet property="colorView" destination="OLs-cT-3wv" id="sTg-Bq-dul"/>
                         <outlet property="nameTextField" destination="JLh-xh-G5V" id="uDf-R1-svP"/>
                         <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="kje-wE-1dX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvP-hc-f9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="567"/>
+            <point key="canvasLocation" x="1792.753623188406" y="566.51785714285711"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="Dbd-gU-9Nt">

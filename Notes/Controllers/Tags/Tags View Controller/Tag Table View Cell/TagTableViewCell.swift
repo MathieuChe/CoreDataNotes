@@ -14,8 +14,10 @@ class TagTableViewCell: UITableViewCell {
     static let reuseIdentifier = "TagTableViewCell"
 
     // MARK: -
-    @IBOutlet var nameLabel: UILabel!
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
     // MARK: - Initialization
     override func awakeFromNib() {
         super.awakeFromNib()

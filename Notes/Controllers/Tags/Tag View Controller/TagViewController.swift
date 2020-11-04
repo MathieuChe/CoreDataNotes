@@ -11,8 +11,9 @@ import UIKit
 class TagViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet var nameTextField: UITextField!
 
+    @IBOutlet weak var nameTextField: UITextField!
+    
     // MARK: -
     var tag: Tag?
 
