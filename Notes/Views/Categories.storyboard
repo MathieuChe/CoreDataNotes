@@ -12,7 +12,7 @@
         <!--Categories View Controller-->
         <scene sceneID="Tsz-oQ-l8L">
             <objects>
-                <viewController storyboardIdentifier="CategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0LP-v9-P85" customClass="CategoriesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="0LP-v9-P85" customClass="CategoriesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tVO-Ig-oRf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,11 +108,63 @@
                     <navigationItem key="navigationItem" id="5cQ-lR-PKG"/>
                     <connections>
                         <outlet property="nameTextField" destination="JLh-xh-G5V" id="uDf-R1-svP"/>
+                        <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="kje-wE-1dX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvP-hc-f9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1793" y="567"/>
+        </scene>
+        <!--Color View Controller-->
+        <scene sceneID="Dbd-gU-9Nt">
+            <objects>
+                <viewController id="XEw-6X-nLT" customClass="ColorViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wd4-rO-A6N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-td-xvX">
+                                <rect key="frame" x="20" y="128" width="374" height="218"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MQj-x8-tB7" userLabel="Blue Slider">
+                                        <rect key="frame" x="-2" y="0.0" width="378" height="31"/>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJQ-C8-G7f" userLabel="Green Slider">
+                                        <rect key="frame" x="-2" y="94" width="378" height="31"/>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8xG-T2-zFG" userLabel="Red Slider">
+                                        <rect key="frame" x="-2" y="188" width="378" height="31"/>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcl-4h-VeK" userLabel="Color View">
+                                <rect key="frame" x="20" y="386" width="374" height="124"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UKs-Dr-wAB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KKU-td-xvX" firstAttribute="top" secondItem="UKs-Dr-wAB" secondAttribute="top" constant="40" id="9v3-FJ-ep7"/>
+                            <constraint firstItem="pcl-4h-VeK" firstAttribute="leading" secondItem="UKs-Dr-wAB" secondAttribute="leading" constant="20" id="DVN-aW-qHA"/>
+                            <constraint firstItem="KKU-td-xvX" firstAttribute="leading" secondItem="UKs-Dr-wAB" secondAttribute="leading" constant="20" id="PN5-kP-ZoT"/>
+                            <constraint firstItem="UKs-Dr-wAB" firstAttribute="trailing" secondItem="pcl-4h-VeK" secondAttribute="trailing" constant="20" id="Xiz-wZ-ucj"/>
+                            <constraint firstItem="pcl-4h-VeK" firstAttribute="top" secondItem="KKU-td-xvX" secondAttribute="bottom" constant="40" id="nV5-E6-iEW"/>
+                            <constraint firstItem="pcl-4h-VeK" firstAttribute="centerY" secondItem="wd4-rO-A6N" secondAttribute="centerY" id="vrV-Ox-NoQ"/>
+                            <constraint firstItem="UKs-Dr-wAB" firstAttribute="trailing" secondItem="KKU-td-xvX" secondAttribute="trailing" constant="20" id="zwo-xA-KOP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ox4-ya-mep"/>
+                    <connections>
+                        <outlet property="blueSlider" destination="MQj-x8-tB7" id="HUg-nx-BGd"/>
+                        <outlet property="colorView" destination="pcl-4h-VeK" id="aZg-xL-IJw"/>
+                        <outlet property="greenSlider" destination="HJQ-C8-G7f" id="rWY-8F-ZWK"/>
+                        <outlet property="redSlider" destination="8xG-T2-zFG" id="rf4-me-ppw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2c6-Ug-GPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2676.811594202899" y="566.51785714285711"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="AH6-sW-d7h">

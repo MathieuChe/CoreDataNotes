@@ -203,7 +203,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fSL-4M-Vsr">
-                                <rect key="frame" x="20" y="246" width="374" height="616"/>
+                                <rect key="frame" x="20" y="330" width="374" height="532"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -227,7 +227,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dj8-hX-NBe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dj8-hX-NBe" userLabel="Edit Category">
                                         <rect key="frame" x="274" y="0.0" width="100" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="V4S-cG-rdk"/>
@@ -240,21 +240,58 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-TU-WGb">
+                                <rect key="frame" x="20" y="246" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uRo-ER-TBm">
+                                <rect key="frame" x="20" y="276" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-rT-wJl" userLabel="Tag Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="HES-m8-aYi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFH-i0-uuL" userLabel="Edit Tags">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Fw8-B4-7L8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <segue destination="8xM-i7-jBt" kind="show" identifier="NoteToTags" id="8Po-6V-8Sh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HY3-24-2OK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VSN-II-iM2" firstAttribute="top" secondItem="IMe-dc-EAQ" secondAttribute="bottom" constant="10.5" id="Aas-hP-uIe"/>
                             <constraint firstItem="fSL-4M-Vsr" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="CjT-wG-EQI"/>
-                            <constraint firstItem="fSL-4M-Vsr" firstAttribute="top" secondItem="VSN-II-iM2" secondAttribute="bottom" constant="20" id="Iv7-Gd-hHQ"/>
+                            <constraint firstItem="uRo-ER-TBm" firstAttribute="top" secondItem="JSp-TU-WGb" secondAttribute="bottom" constant="10.5" id="Fff-7S-xW6"/>
+                            <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="uRo-ER-TBm" secondAttribute="trailing" constant="20" id="FrL-Sv-8Ev"/>
+                            <constraint firstItem="fSL-4M-Vsr" firstAttribute="top" secondItem="uRo-ER-TBm" secondAttribute="bottom" constant="20" id="Iv7-Gd-hHQ"/>
                             <constraint firstItem="efh-kS-vFz" firstAttribute="top" secondItem="HY3-24-2OK" secondAttribute="top" constant="20" id="Kj4-it-yts"/>
                             <constraint firstItem="VSN-II-iM2" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="NbY-hq-ail"/>
+                            <constraint firstItem="JSp-TU-WGb" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="OIf-vI-KaE"/>
+                            <constraint firstItem="JSp-TU-WGb" firstAttribute="top" secondItem="VSN-II-iM2" secondAttribute="bottom" constant="20" id="Rtc-WM-3LN"/>
                             <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="VSN-II-iM2" secondAttribute="trailing" constant="20" id="T5K-ra-cTT"/>
                             <constraint firstItem="IMe-dc-EAQ" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="VGU-fr-cgu"/>
                             <constraint firstItem="IMe-dc-EAQ" firstAttribute="top" secondItem="efh-kS-vFz" secondAttribute="bottom" constant="20" id="bIa-Uf-R4L"/>
                             <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="fSL-4M-Vsr" secondAttribute="trailing" constant="20" id="dWy-8l-hEr"/>
                             <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="IMe-dc-EAQ" secondAttribute="trailing" constant="20" id="ecW-xz-s5G"/>
+                            <constraint firstItem="uRo-ER-TBm" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="mxQ-vS-1oV"/>
                             <constraint firstItem="fSL-4M-Vsr" firstAttribute="bottom" secondItem="HY3-24-2OK" secondAttribute="bottom" id="qXw-jX-d0a"/>
+                            <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="JSp-TU-WGb" secondAttribute="trailing" constant="20" id="stN-2g-n3N"/>
                             <constraint firstItem="efh-kS-vFz" firstAttribute="leading" secondItem="HY3-24-2OK" secondAttribute="leading" constant="20" id="wJe-V9-Kfg"/>
                             <constraint firstItem="HY3-24-2OK" firstAttribute="trailing" secondItem="efh-kS-vFz" secondAttribute="trailing" constant="20" id="wzw-oI-nHv"/>
                         </constraints>
@@ -263,6 +300,7 @@
                     <connections>
                         <outlet property="categoryLabel" destination="qv1-Pb-9gY" id="VMa-Y7-esZ"/>
                         <outlet property="contentsTextView" destination="fSL-4M-Vsr" id="Hdb-Pg-wIR"/>
+                        <outlet property="tagLabel" destination="jDf-rT-wJl" id="dP4-Of-hMz"/>
                         <outlet property="titleTextField" destination="efh-kS-vFz" id="v5B-Vj-iDU"/>
                     </connections>
                 </viewController>
@@ -270,15 +308,25 @@
             </objects>
             <point key="canvasLocation" x="1850.7246376811595" y="670.3125"/>
         </scene>
-        <!--CategoriesViewController-->
+        <!--Categories-->
         <scene sceneID="ZKw-mW-aKO">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Categories" storyboardName="Categories" referencedIdentifier="CategoriesViewController" id="9Um-X1-WTt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Categories" storyboardName="Categories" id="9Um-X1-WTt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ydK-UG-NJ1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNG-ga-r8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2812" y="622"/>
+        </scene>
+        <!--Tags-->
+        <scene sceneID="0fU-g0-DiB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tags" id="8xM-i7-jBt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZHU-A7-MMC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1K-0i-htc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="708"/>
         </scene>
     </scenes>
     <resources>

@@ -10,19 +10,18 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "CategoryTableViewCell"
-    
     // MARK: - Properties
     
+    static let reuseIdentifier = "CategoryTableViewCell"
+    
+    // MARK: -
+    
     @IBOutlet weak var nameLabel: UILabel!
+    
+    // MARK: - Initialization
     
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    
+        
 }
