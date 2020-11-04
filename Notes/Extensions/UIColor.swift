@@ -29,7 +29,7 @@ extension UIColor {
         var g: CGFloat = 0.0
         var b: CGFloat = 0.0
         var a: CGFloat = 1.0
-        let length = hexNormalized.characters.count
+        let length = hexNormalized.count
 
         // Create Scanner
         Scanner(string: hexNormalized).scanHexInt32(&rgb)

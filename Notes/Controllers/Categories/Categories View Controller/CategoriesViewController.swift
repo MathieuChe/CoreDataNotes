@@ -125,7 +125,7 @@ class CategoriesViewController: UIViewController {
             let currentCategory = fetchedResultsController.object(at: indexPath)
             
             // Configure Destination
-            destinationViewController.category = category
+            destinationViewController.category = currentCategory
             
         default:
             break
