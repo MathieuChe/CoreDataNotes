@@ -11,17 +11,23 @@ import CoreData
 
 class AddNoteViewController: UIViewController {
     
+    
+    
     // MARK: - Properties
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentsTextView: UITextView!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var contentsTextView: UITextView!
     
     // MARK: -
     
     var managedObjectContext: NSManagedObjectContext?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     // Creating and populating a note when the user taps the Save button
     // But this save function doesn't push yet the Managed Object Context to the Persistent Store.
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @IBAction func saveNote(_ sender: UIBarButtonItem) {
         guard let managedObjectContext = managedObjectContext else { return }
         // Making sure the title text field isn’t empty. Remember that the title property of the Note entity is a required property. It can’t be empty.
         guard let title = titleTextField.text, !title.isEmpty else {
@@ -52,4 +58,3 @@ class AddNoteViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
 }
-
