@@ -14,14 +14,20 @@ class CategoryTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "CategoryTableViewCell"
     
-    // MARK: -
-    
-    @IBOutlet weak var nameLabel: UILabel!
+    // MARK: - Properties
+
+    @IBOutlet weak var nameCategoryLabel: UILabel!
     
     // MARK: - Initialization
     
     override class func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
         
 }

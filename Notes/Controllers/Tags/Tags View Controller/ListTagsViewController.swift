@@ -9,10 +9,10 @@
 import UIKit
 import CoreData
 
-class TagsViewController: UIViewController {
+class ListTagsViewController: UIViewController {
 
     // MARK: - Properties
-    private let segueTagViewController = "UpdateTag"
+    private let segueDetailsTagViewController = "UpdateTag"
     private let segueAddTagViewController = "AddTag"
 
     // MARK: -
@@ -71,8 +71,8 @@ class TagsViewController: UIViewController {
                 destinationViewController.managedObjectContext = note?.managedObjectContext
             }
 
-        } else if segue.identifier == segueTagViewController {
-            if let destinationViewController = segue.destination as? TagViewController {
+        } else if segue.identifier == segueDetailsTagViewController {
+            if let destinationViewController = segue.destination as? DetailsTagViewController {
                 guard let cell = sender as? TagTableViewCell else { return }
                 guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -123,7 +123,7 @@ class TagsViewController: UIViewController {
 
 }
 
-extension TagsViewController: NSFetchedResultsControllerDelegate {
+extension ListTagsViewController: NSFetchedResultsControllerDelegate {
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -164,7 +164,7 @@ extension TagsViewController: NSFetchedResultsControllerDelegate {
 
 }
 
-extension TagsViewController: UITableViewDataSource {
+extension ListTagsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController.sections else { return 0 }
@@ -193,12 +193,12 @@ extension TagsViewController: UITableViewDataSource {
         let tag = fetchedResultsController.object(at: indexPath)
 
         // Configure Cell
-        cell.nameLabel.text = tag.name
+        cell.nameTagLabel.text = tag.name
 
         if let containsTag = note?.tags?.contains(tag), containsTag == true {
-            cell.nameLabel.textColor = .bitterSweet()
+            cell.nameTagLabel.textColor = .bitterSweet()
         } else {
-            cell.nameLabel.textColor = .black
+            cell.nameTagLabel.textColor = .black
         }
     }
 
@@ -214,7 +214,7 @@ extension TagsViewController: UITableViewDataSource {
 
 }
 
-extension TagsViewController: UITableViewDelegate {
+extension ListTagsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

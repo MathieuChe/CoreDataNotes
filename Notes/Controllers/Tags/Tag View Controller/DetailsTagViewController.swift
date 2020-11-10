@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagViewController: UIViewController {
+class DetailsTagViewController: UIViewController {
 
     // MARK: - Properties
 

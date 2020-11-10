@@ -11,11 +11,11 @@ import CoreData
 
 // NSFetchedResultsControllerDelegate for using a NSFetchedResultsController instance to populate the table view of the notes view controller
 
-class NotesViewController: UIViewController {
+class ListNotesViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let segueNoteViewController = "UpdateNote"
+    private let segueDetailsNoteViewController = "UpdateNote"
     private let segueAddNoteViewController = "AddNote"
     
     // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -126,8 +126,8 @@ class NotesViewController: UIViewController {
             
             destinationViewController.managedObjectContext = coreDataManager.managedObjectContext
             
-        case segueNoteViewController:
-            guard let destinationViewController = segue.destination as? NoteViewController else { return }
+        case segueDetailsNoteViewController:
+            guard let destinationViewController = segue.destination as? DetailsNoteViewController else { return }
             
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
@@ -167,6 +167,7 @@ class NotesViewController: UIViewController {
 
     private func setupMessageLabel() {
         
+        // Configure Message Label
         messageLabel.text = "You don't have any notes yet."
     }
     
@@ -212,7 +213,7 @@ class NotesViewController: UIViewController {
 
 // The NSFetchedResultsControllerDelegate protocol defines four methods. We need to implement three of those
 
-extension NotesViewController: NSFetchedResultsControllerDelegate {
+extension ListNotesViewController: NSFetchedResultsControllerDelegate {
     
     // This method is invoked when the fetched results controller starts processing one or more inserts, updates, or deletes.
     
@@ -309,7 +310,7 @@ extension NotesViewController: NSFetchedResultsControllerDelegate {
 
 // MARK: - TableView Data Source
 
-extension NotesViewController: UITableViewDataSource {
+extension ListNotesViewController: UITableViewDataSource {
     
     
     // A fetched results controller is perfectly capable of managing hierarchical data. That’s why it’s such a good fit for table and collection views. Even though we’re not splitting the notes up into sections, we can still ask the fetched results controller for the sections it manages.
@@ -392,7 +393,7 @@ extension NotesViewController: UITableViewDataSource {
         
         // Fetch Note
         
-        let note = fetchedResultsController.object(at: indexPath)
+        let currentNote = fetchedResultsController.object(at: indexPath)
         
         // Delete Note
         
@@ -400,19 +401,18 @@ extension NotesViewController: UITableViewDataSource {
         
         // The implementation also works if we use coreDataManager.managedObjectContext.delete(note)
         
-        coreDataManager.managedObjectContext.delete(note)
+        coreDataManager.managedObjectContext.delete(currentNote)
     }
     
 }
 
 // MARK: - TableView Delegate
 
-extension NotesViewController: UITableViewDelegate {
+extension ListNotesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Deselect the row after touching up
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

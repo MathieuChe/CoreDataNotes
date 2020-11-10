@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notes View Controller-->
+        <!--List Notes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Notes View Controller" customClass="NotesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="List Notes View Controller" customClass="ListNotesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
                             <constraint firstItem="Dqo-vI-j8a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eym-cC-AHe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="GvT-0D-kZE">
+                    <navigationItem key="navigationItem" title="Notes List" id="GvT-0D-kZE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bv8-hG-2RT">
                             <connections>
                                 <segue destination="cF6-DT-4I7" kind="show" identifier="AddNote" id="YaE-k6-jKN"/>
@@ -130,8 +130,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a category to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -189,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
         </scene>
-        <!--Note View Controller-->
+        <!--Details Note View Controller-->
         <scene sceneID="5Hx-Nq-e4W">
             <objects>
-                <viewController id="nrh-Rg-5yw" customClass="NoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController id="nrh-Rg-5yw" customClass="DetailsNoteViewController" customModule="Notes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6r9-Q1-lzp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,20 +309,20 @@
             </objects>
             <point key="canvasLocation" x="1850.7246376811595" y="670.3125"/>
         </scene>
-        <!--Categories-->
+        <!--CategoriesViewController-->
         <scene sceneID="ZKw-mW-aKO">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Categories" storyboardName="Categories" id="9Um-X1-WTt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Categories" storyboardName="Categories" referencedIdentifier="CategoriesViewController" id="9Um-X1-WTt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ydK-UG-NJ1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNG-ga-r8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2812" y="622"/>
         </scene>
-        <!--Tags-->
+        <!--TagsViewController-->
         <scene sceneID="0fU-g0-DiB">
             <objects>
-                <viewControllerPlaceholder storyboardName="Tags" id="8xM-i7-jBt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Tags" storyboardName="Tags" referencedIdentifier="TagsViewController" id="8xM-i7-jBt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZHU-A7-MMC"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1K-0i-htc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class CategoriesViewController: UIViewController {
+// NSFetchedResultsControllerDelegate for using a NSFetchedResultsController instance to populate the table view of the categories view controller
+
+class ListCategoriesViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -27,13 +29,20 @@ class CategoriesViewController: UIViewController {
     
     // MARK: -
     
+    //Estimate the RowHeight of the cell
+    private let estimatedRowHeight = CGFloat(44.0)
+    
+    // instantiation of the Core Data manager in the view controller. It is no longer an optional
+    
+    private var coreDataManager = CoreDataManager(modelName: "Notes")
+    
     // No longer need a property for the managed object context because we can access the managed object context through the note property
     
     var note: Note?
     
     // MARK: -
     
-    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Category> = {
+    private lazy var fetchedResultsController: NSFetchedResultsController<Category> = {
         
         // Access the managed object context through the note property
         
@@ -63,6 +72,13 @@ class CategoriesViewController: UIViewController {
         
     } ()
     
+    private var hasCategory: Bool {
+        
+    guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
+        
+        return fetchedObjects.count > 0
+    }
+    
     
     // MARK: - View Life Cycle
     
@@ -86,7 +102,23 @@ class CategoriesViewController: UIViewController {
             print("\(fetchError), \(fetchError.localizedDescription)")
         }
         
+        // Fetching the categories from the persistent store by invoking another helper method, fetchCategories()
+        
+        setupView()
+        
+        fetchCategories()
+        
         updateView()
+    
+    }
+    
+    // Notify the view controller its view was added to a view hierarchy
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        fetchCategories()
     }
     
     
@@ -113,7 +145,7 @@ class CategoriesViewController: UIViewController {
             
         case segueCategoryViewController:
             
-            guard let destinationViewController = segue.destination as? CategoryViewController else { return }
+            guard let destinationViewController = segue.destination as? DetailsCategoryViewController else { return }
             
             //Define the cell from CategoryTableViewCell
             guard let cell = sender as? CategoryTableViewCell else { return }
@@ -135,21 +167,21 @@ class CategoriesViewController: UIViewController {
     //MARK: - View Methods
     
     fileprivate func setupView(){
+        
         setupMessageLabelText()
+        
         setupBarButtonItems()
+        
+        setupTableView()
     }
     
     // Implementing a computed property by asking the fetched results controller for the value of its fetchedObjects property
-    fileprivate func updateView() {
-        var hasCategory: Bool = false
-        guard let fetchedObjects = fetchedResultsController.fetchedObjects else {
+    private func updateView() {
             
             tableView.isHidden = !hasCategory
+            
             messageLabel.isHidden = hasCategory
             
-            return
-        }
-        hasCategory = fetchedObjects.count > 0
     }
     
     // MARK: -
@@ -162,9 +194,44 @@ class CategoriesViewController: UIViewController {
     }
     
     // MARK: -
+
+    // Setup the tableView
+    private func setupTableView() {
+        tableView.isHidden = true
+        tableView.separatorInset = .zero
+        tableView.estimatedRowHeight = estimatedRowHeight
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
     
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(sender:)))
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func fetchCategories(){
+        
+        
+        // Performing the fetched results controller
+        
+        // fetched results controller doesn’t perform a fetch if we don’t tell it to
+        
+        do{
+            
+            // Executing a perform fetch is a throwing operation, so use try
+            
+            try self.fetchedResultsController.performFetch()
+            
+        }catch{
+            
+            let fetchError = error as NSError
+            
+            print("Unable to Execute Fetch Request")
+            
+            print("\(fetchError), \(fetchError.localizedDescription)")
+            
+        }
     }
     
     // MARK: - Actions
@@ -177,7 +244,7 @@ class CategoriesViewController: UIViewController {
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-extension CategoriesViewController: NSFetchedResultsControllerDelegate {
+extension ListCategoriesViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -216,10 +283,14 @@ extension CategoriesViewController: NSFetchedResultsControllerDelegate {
 }
 
 
-// MARK: - UITableViewDataSource
+// MARK: - TableView Data Source
 
 
-extension CategoriesViewController: UITableViewDataSource {
+extension ListCategoriesViewController: UITableViewDataSource {
+    
+    // A fetched results controller is perfectly capable of managing hierarchical data. That’s why it’s such a good fit for table and collection views. Even though we’re not splitting the notes up into sections, we can still ask the fetched results controller for the sections it manages.
+    
+    // Updating the implementation of the UITableViewDataSource protocol.
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -228,6 +299,9 @@ extension CategoriesViewController: UITableViewDataSource {
         return sections.count
         
     }
+    
+    // The numberOfObjects property tells us exactly how many managed object the section contains
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // The application returns the number of notes if it has notes to display, otherwise it returns 0
@@ -235,7 +309,14 @@ extension CategoriesViewController: UITableViewDataSource {
         guard let section = fetchedResultsController.sections?[section] else { return 0 }
         
         return section.numberOfObjects
+        
     }
+    
+    // First fetching the category that corresponds with the value of the indexPath parameter.
+    
+    // Then dequeuing a category table view cell
+    
+    // And populating the table view cell with the data of the category.
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -252,32 +333,38 @@ extension CategoriesViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    
     // For updates, need to fetch the table view cell that corresponds with the updated managed object and update its contents by using helper method, configure(_:at:)
 
     func configure(_ cell: CategoryTableViewCell, at indexPath: IndexPath) {
         
-        // Fetch Note
+        // Fetch Category
         
         let category = fetchedResultsController.object(at: indexPath)
         
         // Configure Cell
         
-        // utilisation of Note extension
+        // utilisation of Category extension
         
-        cell.nameLabel.text = category.name
+        cell.nameCategoryLabel.text = category.name
         
         if note?.category == category {
             
-            cell.nameLabel.textColor = .bitterSweet()
+            cell.nameCategoryLabel.textColor = .bitterSweet()
             
         }else{
             
-            cell.nameLabel.textColor = .black
+            cell.nameCategoryLabel.textColor = .black
             
         }
     }
     
+    // For a deleting note we need to implement the method is tableView(_:commit:forRowAt:)
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Exiting early if the editingStyle's value isn't equal to delete
         
         guard editingStyle == .delete else { return }
         
@@ -296,9 +383,11 @@ extension CategoriesViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension CategoriesViewController: UITableViewDelegate {
+extension ListCategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Deselect the row after touching up
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Fetch Category

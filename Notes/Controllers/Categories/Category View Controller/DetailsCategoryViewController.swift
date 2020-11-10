@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CategoryViewController: UIViewController {
+class DetailsCategoryViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -86,7 +86,7 @@ class CategoryViewController: UIViewController {
     }
 }
 
-extension CategoryViewController: ColorViewControllerDelegate {
+extension DetailsCategoryViewController: ColorViewControllerDelegate {
 
     func controller(_ controller: ColorViewController, didPick color: UIColor) {
         // Update Category

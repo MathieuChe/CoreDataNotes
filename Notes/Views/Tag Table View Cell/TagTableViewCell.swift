@@ -15,7 +15,7 @@ class TagTableViewCell: UITableViewCell {
 
     // MARK: -
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTagLabel: UILabel!
     
     
     // MARK: - Initialization

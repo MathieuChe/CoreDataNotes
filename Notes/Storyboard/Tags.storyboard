@@ -12,7 +12,7 @@
         <!--Tags View Controller-->
         <scene sceneID="mbD-Ye-xDv">
             <objects>
-                <viewController id="JeV-1x-mMo" userLabel="Tags View Controller" customClass="TagsViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TagsViewController" id="JeV-1x-mMo" userLabel="Tags View Controller" customClass="ListTagsViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lB7-lf-lPi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQD-Xq-lxD" userLabel="Name Label">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQD-Xq-lxD" userLabel="nameTagLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -51,8 +51,7 @@
                                                 </tableViewCellContentView>
                                                 <viewLayoutGuide key="safeArea" id="2DK-nl-TzF"/>
                                                 <connections>
-                                                    <outlet property="nameLabel" destination="fQD-Xq-lxD" id="UTB-67-mey"/>
-                                                    <outlet property="titleLabel" destination="fQD-Xq-lxD" id="sM3-gh-vrF"/>
+                                                    <outlet property="nameTagLabel" destination="fQD-Xq-lxD" id="UTB-67-mey"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -84,7 +83,7 @@
                             <constraint firstItem="LH5-A1-y1E" firstAttribute="trailing" secondItem="eh1-Vk-Yq4" secondAttribute="trailing" id="x1i-qE-Vo4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="H5G-dI-ykl">
+                    <navigationItem key="navigationItem" title="Tags List" id="H5G-dI-ykl">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="Hm1-Y7-7W5">
                             <connections>
                                 <segue destination="ElY-LH-8sP" kind="show" identifier="UpdateTag" id="YaR-jC-vj3"/>
@@ -157,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="2948" y="-398"/>
         </scene>
-        <!--Tag View Controller-->
+        <!--Details Tag View Controller-->
         <scene sceneID="k5B-at-dcF">
             <objects>
-                <viewController id="ElY-LH-8sP" customClass="TagViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ElY-LH-8sP" customClass="DetailsTagViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lwH-S0-8Q7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,12 +11,12 @@ import CoreData
 
 
 // To update the note view controller
-class NoteViewController: UIViewController {
+class DetailsNoteViewController: UIViewController {
     
     // MARK: - Properties
     
-    let segueTagsViewController = "NoteToTags"
-    let segueCategoriesViewController = "NoteToCategories"
+    let segueListTagsViewController = "NoteToTags"
+    let segueListCategoriesViewController = "NoteToCategories"
     
     
     // MARK: - Properties
@@ -66,17 +66,17 @@ class NoteViewController: UIViewController {
         
         switch identifier {
         
-        case segueCategoriesViewController:
+        case segueListCategoriesViewController:
             
-            guard let destinationViewController = segue.destination as? CategoriesViewController else {return}
+            guard let destinationViewController = segue.destination as? ListCategoriesViewController else {return}
             
             // Configure View Controller
 
             destinationViewController.note = note
         
-        case segueTagsViewController:
+        case segueListTagsViewController:
             
-            guard let destinationViewController = segue.destination as? TagsViewController else {return}
+            guard let destinationViewController = segue.destination as? ListTagsViewController else {return}
             
             // Configure View Controller
             
