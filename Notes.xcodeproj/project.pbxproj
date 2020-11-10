@@ -122,7 +122,7 @@
 			children = (
 				F1B62217255AE0BC008A0DF3 /* Storyboard */,
 				4E21B61F253455F3006261B8 /* Delegate Files */,
-				4E21B6222534564A006261B8 /* Extensions */,
+				4E21B6222534564A006261B8 /* Models */,
 				4E21B62125345623006261B8 /* Views */,
 				4E21B6202534561C006261B8 /* Controllers */,
 				4E21B62525345905006261B8 /* Resources */,
@@ -162,7 +162,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4E21B6222534564A006261B8 /* Extensions */ = {
+		4E21B6222534564A006261B8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4E14AF3B2539ECDD007CB496 /* Note.swift */,
@@ -170,7 +170,7 @@
 				F1D692F02552AEF3000DA1D9 /* UIViewController.swift */,
 				F1D692F32552AF66000DA1D9 /* Category.swift */,
 			);
-			path = Extensions;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4E21B624253458E8006261B8 /* Notes View Controller */ = {
