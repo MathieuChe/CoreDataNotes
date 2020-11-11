@@ -125,27 +125,28 @@
         <!--Add Note View Controller-->
         <scene sceneID="5yb-FW-4Wz">
             <objects>
-                <viewController id="cF6-DT-4I7" customClass="AddNoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController id="cF6-DT-4I7" customClass="AddNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zme-6w-oFB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a category to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zcv-sY-g64">
                                 <rect key="frame" x="20" y="162" width="374" height="700"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="liv-hH-uOd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PIy-0H-kWJ" firstAttribute="leading" secondItem="liv-hH-uOd" secondAttribute="leading" constant="20" id="5l5-az-ZHO"/>
                             <constraint firstItem="liv-hH-uOd" firstAttribute="trailing" secondItem="Zcv-sY-g64" secondAttribute="trailing" constant="20" id="MYy-pa-wF1"/>
@@ -193,7 +194,7 @@
         <!--Details Note View Controller-->
         <scene sceneID="5Hx-Nq-e4W">
             <objects>
-                <viewController id="nrh-Rg-5yw" customClass="DetailsNoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController id="nrh-Rg-5yw" customClass="DetailsNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6r9-Q1-lzp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

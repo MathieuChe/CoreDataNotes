@@ -198,7 +198,7 @@ extension ListTagsViewController: UITableViewDataSource {
         if let containsTag = note?.tags?.contains(tag), containsTag == true {
             cell.nameTagLabel.textColor = .bitterSweet()
         } else {
-            cell.nameTagLabel.textColor = .black
+            cell.nameTagLabel.textColor = .white
         }
     }
 

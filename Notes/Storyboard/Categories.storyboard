@@ -30,21 +30,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" id="Jkf-Cp-jNy" customClass="CategoryTableViewCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" id="Jkf-Cp-jNy" customClass="CategoryTableViewCell" customModule="Notes" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jkf-Cp-jNy" id="UyA-H3-Uug">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-NZ-b2N" userLabel="nameCategoryLabel">
-                                                            <rect key="frame" x="20" y="0.0" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-NZ-b2N" userLabel="nameCategoryLabel">
+                                                            <rect key="frame" x="5" y="5" width="404" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="HUL-NZ-b2N" secondAttribute="trailing" constant="5" id="Ki6-Q5-E88"/>
+                                                        <constraint firstItem="HUL-NZ-b2N" firstAttribute="top" secondItem="UyA-H3-Uug" secondAttribute="top" constant="5" id="gCc-D5-H7i"/>
+                                                        <constraint firstItem="HUL-NZ-b2N" firstAttribute="leading" secondItem="UyA-H3-Uug" secondAttribute="leading" constant="5" id="mWU-tF-1EN"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="nameCategoryLabel" destination="HUL-NZ-b2N" id="60g-Mn-6H5"/>
@@ -100,13 +104,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLh-xh-G5V" userLabel="Name Text Field">
-                                <rect key="frame" x="62" y="108" width="332" height="34"/>
+                                <rect key="frame" x="120" y="108" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLs-cT-3wv" userLabel="Color View">
-                                <rect key="frame" x="20" y="108" width="34" height="34"/>
+                                <rect key="frame" x="20" y="108" width="80" height="34"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ZS9-3G-eZk"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KQ9-vX-sck"/>
@@ -114,11 +121,9 @@
                         <constraints>
                             <constraint firstItem="KQ9-vX-sck" firstAttribute="trailing" secondItem="JLh-xh-G5V" secondAttribute="trailing" constant="20" id="7bZ-7y-NH4"/>
                             <constraint firstItem="JLh-xh-G5V" firstAttribute="top" secondItem="KQ9-vX-sck" secondAttribute="top" constant="20" id="8nn-k6-1OK"/>
-                            <constraint firstItem="JLh-xh-G5V" firstAttribute="leading" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="8" symbolic="YES" id="KDe-ne-ezI"/>
-                            <constraint firstAttribute="trailing" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="360" id="ZJT-kf-Qmc"/>
                             <constraint firstItem="OLs-cT-3wv" firstAttribute="bottom" secondItem="JLh-xh-G5V" secondAttribute="bottom" id="dMl-VY-4JI"/>
+                            <constraint firstItem="JLh-xh-G5V" firstAttribute="leading" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="20" id="e0k-7V-QVj"/>
                             <constraint firstItem="OLs-cT-3wv" firstAttribute="top" secondItem="JLh-xh-G5V" secondAttribute="top" id="fX3-Cf-hXx"/>
-                            <constraint firstItem="KQ9-vX-sck" firstAttribute="bottom" secondItem="JLh-xh-G5V" secondAttribute="bottom" constant="720" id="iwx-iD-fIp"/>
                             <constraint firstItem="OLs-cT-3wv" firstAttribute="leading" secondItem="Ugb-L2-CfZ" secondAttribute="leadingMargin" id="jve-ZB-ptV"/>
                         </constraints>
                     </view>
@@ -213,6 +218,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a category to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNc-yK-qd9" userLabel="Name Text Field">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -223,7 +229,6 @@
                             <constraint firstItem="WNc-yK-qd9" firstAttribute="top" secondItem="yRR-JV-uVD" secondAttribute="top" constant="20" id="4gF-hm-DBN"/>
                             <constraint firstItem="yRR-JV-uVD" firstAttribute="trailing" secondItem="WNc-yK-qd9" secondAttribute="trailing" constant="20" id="9RV-lA-Lb9"/>
                             <constraint firstItem="WNc-yK-qd9" firstAttribute="leading" secondItem="yRR-JV-uVD" secondAttribute="leading" constant="20" id="Nl0-ny-fCn"/>
-                            <constraint firstItem="yRR-JV-uVD" firstAttribute="bottom" secondItem="WNc-yK-qd9" secondAttribute="bottom" constant="720" id="VzL-j1-2cz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dtc-V5-Eqi">

@@ -18,7 +18,7 @@ class ListCategoriesViewController: UIViewController {
     // As we have a tableView, it's absolutly necessary to use the datasource as a variable and the delegate. You could set it up on the storyboard or in the code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
     // Keep the segue identifier in a constant
-    private let segueCategoryViewController = "UpdateCategory"
+    private let segueDetailsCategoryViewController = "UpdateCategory"
     private let segueAddCategoryViewController = "AddCategory"
     
     // MARK: - Properties
@@ -143,7 +143,7 @@ class ListCategoriesViewController: UIViewController {
             // Configure Destination View Controller
             destinationViewController.managedObjectContext = note?.managedObjectContext
             
-        case segueCategoryViewController:
+        case segueDetailsCategoryViewController:
             
             guard let destinationViewController = segue.destination as? DetailsCategoryViewController else { return }
             
@@ -203,7 +203,7 @@ class ListCategoriesViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    
+    // Create a add bar navigation item button
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(sender:)))
     }
@@ -235,7 +235,7 @@ class ListCategoriesViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
+    // After creating the add navigation bar item button, performSegue to AddCategoryViewController
     @objc func add(sender: UIBarButtonItem) {
         performSegue(withIdentifier: segueAddCategoryViewController, sender: self)
     }
@@ -355,7 +355,7 @@ extension ListCategoriesViewController: UITableViewDataSource {
             
         }else{
             
-            cell.nameCategoryLabel.textColor = .black
+            cell.nameCategoryLabel.textColor = .white
             
         }
     }
