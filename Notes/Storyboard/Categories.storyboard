@@ -157,9 +157,15 @@
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJQ-C8-G7f" userLabel="Green Slider">
                                         <rect key="frame" x="-2" y="80" width="378" height="31"/>
+                                        <connections>
+                                            <action selector="colorDidChange:" destination="XEw-6X-nLT" eventType="valueChanged" id="gna-Y0-KYo"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8xG-T2-zFG" userLabel="Red Slider">
                                         <rect key="frame" x="-2" y="160" width="378" height="31"/>
+                                        <connections>
+                                            <action selector="colorDidChange:" destination="XEw-6X-nLT" eventType="valueChanged" id="Ywy-3b-xji"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                             </stackView>
