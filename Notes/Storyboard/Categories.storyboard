@@ -164,19 +164,21 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcl-4h-VeK" userLabel="Color View">
-                                <rect key="frame" x="20" y="358" width="374" height="180"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="20" y="582" width="374" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Qh0-Nl-vDk"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UKs-Dr-wAB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KKU-td-xvX" firstAttribute="top" secondItem="UKs-Dr-wAB" secondAttribute="top" constant="40" id="9v3-FJ-ep7"/>
-                            <constraint firstItem="pcl-4h-VeK" firstAttribute="leading" secondItem="UKs-Dr-wAB" secondAttribute="leading" constant="20" id="DVN-aW-qHA"/>
                             <constraint firstItem="KKU-td-xvX" firstAttribute="leading" secondItem="UKs-Dr-wAB" secondAttribute="leading" constant="20" id="PN5-kP-ZoT"/>
-                            <constraint firstItem="UKs-Dr-wAB" firstAttribute="trailing" secondItem="pcl-4h-VeK" secondAttribute="trailing" constant="20" id="Xiz-wZ-ucj"/>
-                            <constraint firstItem="pcl-4h-VeK" firstAttribute="top" secondItem="KKU-td-xvX" secondAttribute="bottom" constant="40" id="nV5-E6-iEW"/>
-                            <constraint firstItem="pcl-4h-VeK" firstAttribute="centerY" secondItem="wd4-rO-A6N" secondAttribute="centerY" id="vrV-Ox-NoQ"/>
+                            <constraint firstItem="UKs-Dr-wAB" firstAttribute="bottom" secondItem="pcl-4h-VeK" secondAttribute="bottom" constant="100" id="Scf-ro-mbP"/>
+                            <constraint firstItem="pcl-4h-VeK" firstAttribute="leading" secondItem="UKs-Dr-wAB" secondAttribute="leading" constant="20" id="Xjh-4b-zHl"/>
+                            <constraint firstItem="UKs-Dr-wAB" firstAttribute="trailing" secondItem="pcl-4h-VeK" secondAttribute="trailing" constant="20" id="gnx-sk-D7p"/>
                             <constraint firstItem="UKs-Dr-wAB" firstAttribute="trailing" secondItem="KKU-td-xvX" secondAttribute="trailing" constant="20" id="zwo-xA-KOP"/>
                         </constraints>
                     </view>
