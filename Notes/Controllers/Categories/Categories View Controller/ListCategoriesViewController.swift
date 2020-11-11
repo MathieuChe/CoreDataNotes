@@ -396,10 +396,6 @@ extension ListCategoriesViewController: UITableViewDelegate {
         // Update Note
         note?.category = currentCategory
 
-
-        // Pop View Controller From Navigation Stack
-        let _ = navigationController?.popViewController(animated: true)
-        
     }
 }
 
