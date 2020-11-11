@@ -87,9 +87,10 @@ class ColorViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func colorDidChange(sender: UISlider) {
+    
+    @IBAction func colorDidChange(_ sender: UISlider) {
         // Update View
         updateColorView()
     }
-
+    
 }

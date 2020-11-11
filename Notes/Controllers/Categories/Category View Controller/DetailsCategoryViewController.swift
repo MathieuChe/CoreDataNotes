@@ -62,6 +62,7 @@ class DetailsCategoryViewController: UIViewController {
     fileprivate func setupView(){
         setupColorView()
         setupNameTextField()
+        setupBarButtonItems()
     }
     
     
@@ -84,6 +85,18 @@ class DetailsCategoryViewController: UIViewController {
         // Configure Title Text Field
         nameTextField.text = category?.name
     }
+    
+    // Create an add bar navigation item button
+    private func setupBarButtonItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(sender:)))
+    }
+    
+    // MARK: - Actions
+    // After creating the add navigation bar item button, performSegue to AddCategoryViewController
+    @objc func add(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: segueColorViewController, sender: self)
+    }
+    
 }
 
 extension DetailsCategoryViewController: ColorViewControllerDelegate {

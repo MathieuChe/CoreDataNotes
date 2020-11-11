@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories List-->
+        <!--Categories-->
         <scene sceneID="Tsz-oQ-l8L">
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0LP-v9-P85" customClass="ListCategoriesViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" id="Jkf-Cp-jNy" customClass="CategoryTableViewCell" customModule="Notes" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" rowHeight="43.5" id="Jkf-Cp-jNy" customClass="CategoryTableViewCell" customModule="Notes" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jkf-Cp-jNy" id="UyA-H3-Uug">
@@ -84,7 +84,7 @@
                             <constraint firstItem="Mz6-n1-eQo" firstAttribute="top" secondItem="jNR-sL-cUN" secondAttribute="top" id="eMh-WJ-LGp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Categories List" id="WZF-7e-aNj"/>
+                    <navigationItem key="navigationItem" title="Categories" id="WZF-7e-aNj"/>
                     <connections>
                         <outlet property="messageLabel" destination="ScQ-eS-2w7" id="Psw-Jy-Vc8"/>
                         <outlet property="tableView" destination="vs5-Yi-yBL" id="b6U-Ya-fJ6"/>
@@ -131,7 +131,7 @@
                     <connections>
                         <outlet property="colorView" destination="OLs-cT-3wv" id="sTg-Bq-dul"/>
                         <outlet property="nameTextField" destination="JLh-xh-G5V" id="uDf-R1-svP"/>
-                        <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="kje-wE-1dX"/>
+                        <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="mcv-4q-8Yi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvP-hc-f9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,22 +146,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-td-xvX">
-                                <rect key="frame" x="20" y="128" width="374" height="218"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="KKU-td-xvX">
+                                <rect key="frame" x="20" y="128" width="374" height="190"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MQj-x8-tB7" userLabel="Blue Slider">
                                         <rect key="frame" x="-2" y="0.0" width="378" height="31"/>
+                                        <connections>
+                                            <action selector="colorDidChange:" destination="XEw-6X-nLT" eventType="valueChanged" id="1ww-Kg-2cm"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJQ-C8-G7f" userLabel="Green Slider">
-                                        <rect key="frame" x="-2" y="94" width="378" height="31"/>
+                                        <rect key="frame" x="-2" y="80" width="378" height="31"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8xG-T2-zFG" userLabel="Red Slider">
-                                        <rect key="frame" x="-2" y="188" width="378" height="31"/>
+                                        <rect key="frame" x="-2" y="160" width="378" height="31"/>
                                     </slider>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcl-4h-VeK" userLabel="Color View">
-                                <rect key="frame" x="20" y="386" width="374" height="124"/>
+                                <rect key="frame" x="20" y="358" width="374" height="180"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
