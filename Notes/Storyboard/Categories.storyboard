@@ -52,6 +52,7 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="nameCategoryLabel" destination="HUL-NZ-b2N" id="60g-Mn-6H5"/>
+                                                    <segue destination="0AB-dp-LNn" kind="show" identifier="UpdateCategory" id="foH-cy-3k3"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -87,7 +88,6 @@
                     <connections>
                         <outlet property="messageLabel" destination="ScQ-eS-2w7" id="Psw-Jy-Vc8"/>
                         <outlet property="tableView" destination="vs5-Yi-yBL" id="b6U-Ya-fJ6"/>
-                        <segue destination="0AB-dp-LNn" kind="show" identifier="UpdateCategory" id="SiM-Uw-hiw"/>
                         <segue destination="Sw9-Fk-7m3" kind="show" identifier="AddCategory" id="yOw-1h-qeE"/>
                     </connections>
                 </viewController>

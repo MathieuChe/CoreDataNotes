@@ -203,7 +203,7 @@ class ListCategoriesViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    // Create a add bar navigation item button
+    // Create an add bar navigation item button
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(sender:)))
     }
@@ -392,11 +392,11 @@ extension ListCategoriesViewController: UITableViewDelegate {
         
         // Fetch Category
         let currentCategory = fetchedResultsController.object(at: indexPath)
-        
+
         // Update Note
         note?.category = currentCategory
-        
-        
+
+
         // Pop View Controller From Navigation Stack
         let _ = navigationController?.popViewController(animated: true)
         

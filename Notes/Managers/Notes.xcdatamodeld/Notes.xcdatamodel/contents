@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
-        <attribute name="colorAsHex" optional="YES" attributeType="String"/>
+        <attribute name="colorAsHex" optional="YES" attributeType="String" defaultValueString="FFFFFF"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="category" inverseEntity="Note"/>
     </entity>
@@ -18,7 +18,7 @@
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="tags" inverseEntity="Note"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-40.94140625" positionY="-154.26171875" width="128" height="88"/>
+        <element name="Category" positionX="-40.94140625" positionY="-154.26171875" width="128" height="28"/>
         <element name="Note" positionX="-327.203125" positionY="-410.125" width="128" height="133"/>
         <element name="Tag" positionX="-306.69921875" positionY="-126.1640625" width="128" height="73"/>
     </elements>
