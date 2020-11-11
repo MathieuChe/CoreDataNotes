@@ -105,7 +105,7 @@ class ListTagsViewController: UIViewController {
     // MARK: -
     private func setupMessageLabel() {
         // Configure Message Label
-        messageLabel.text = "You don't have any tags yet."
+        messageLabel.text = "No tags yet."
     }
 
     // MARK: -

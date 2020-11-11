@@ -189,7 +189,7 @@ class ListCategoriesViewController: UIViewController {
     private func setupMessageLabelText() {
         
         // Configure Message Label
-        messageLabel.text = "No category yet"
+        messageLabel.text = "No category yet."
         
     }
     

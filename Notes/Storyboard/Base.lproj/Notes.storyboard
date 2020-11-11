@@ -130,31 +130,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a category to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a note to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zcv-sY-g64">
                                 <rect key="frame" x="20" y="162" width="374" height="700"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="liv-hH-uOd"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zcv-sY-g64" firstAttribute="top" secondItem="PIy-0H-kWJ" secondAttribute="bottom" constant="20" id="0Lk-15-7qP"/>
                             <constraint firstItem="PIy-0H-kWJ" firstAttribute="leading" secondItem="liv-hH-uOd" secondAttribute="leading" constant="20" id="5l5-az-ZHO"/>
                             <constraint firstItem="liv-hH-uOd" firstAttribute="trailing" secondItem="Zcv-sY-g64" secondAttribute="trailing" constant="20" id="MYy-pa-wF1"/>
                             <constraint firstItem="PIy-0H-kWJ" firstAttribute="top" secondItem="liv-hH-uOd" secondAttribute="top" constant="20" id="Mg1-FN-q0X"/>
                             <constraint firstItem="liv-hH-uOd" firstAttribute="trailing" secondItem="PIy-0H-kWJ" secondAttribute="trailing" constant="20" id="N7Q-Sz-0X4"/>
                             <constraint firstItem="Zcv-sY-g64" firstAttribute="bottom" secondItem="liv-hH-uOd" secondAttribute="bottom" id="nl0-Qb-uoo"/>
                             <constraint firstItem="Zcv-sY-g64" firstAttribute="leading" secondItem="liv-hH-uOd" secondAttribute="leading" constant="20" id="tC4-K8-bls"/>
-                            <constraint firstItem="Zcv-sY-g64" firstAttribute="top" secondItem="PIy-0H-kWJ" secondAttribute="bottom" constant="20" id="zlX-XB-2Io"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y7d-Aw-LjF">
