@@ -174,6 +174,7 @@ class ListNotesViewController: UIViewController {
     // MARK: -
 
     // Setup the tableView
+    //estimateRowHeight permet d'aider l'ordinateur a combien approximativement les cellules doivent etre
     private func setupTableView() {
         tableView.isHidden = true
         tableView.separatorInset = .zero

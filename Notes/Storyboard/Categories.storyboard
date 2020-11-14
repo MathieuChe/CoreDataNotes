@@ -38,7 +38,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-NZ-b2N" userLabel="nameCategoryLabel">
-                                                            <rect key="frame" x="5" y="5" width="404" height="21"/>
+                                                            <rect key="frame" x="5" y="5" width="404" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="HUL-NZ-b2N" secondAttribute="trailing" constant="5" id="Ki6-Q5-E88"/>
+                                                        <constraint firstAttribute="bottom" secondItem="HUL-NZ-b2N" secondAttribute="bottom" constant="5" id="ccP-iV-mrA"/>
                                                         <constraint firstItem="HUL-NZ-b2N" firstAttribute="top" secondItem="UyA-H3-Uug" secondAttribute="top" constant="5" id="gCc-D5-H7i"/>
                                                         <constraint firstItem="HUL-NZ-b2N" firstAttribute="leading" secondItem="UyA-H3-Uug" secondAttribute="leading" constant="5" id="mWU-tF-1EN"/>
                                                     </constraints>
@@ -103,35 +104,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLh-xh-G5V" userLabel="Name Text Field">
-                                <rect key="frame" x="120" y="108" width="274" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLs-cT-3wv" userLabel="Color View">
-                                <rect key="frame" x="20" y="108" width="80" height="34"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GZV-Bf-tmq">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-vH-VTp">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="34"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <connections>
+                                            <action selector="didTapChangeColorButton" destination="0AB-dp-LNn" eventType="touchUpInside" id="uBh-bq-b5o"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLh-xh-G5V" userLabel="Name Text Field">
+                                        <rect key="frame" x="53.5" y="0.0" width="320.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="ZS9-3G-eZk"/>
+                                    <constraint firstItem="wFb-vH-VTp" firstAttribute="width" secondItem="GZV-Bf-tmq" secondAttribute="width" multiplier="0.111111" id="SGf-rU-3TW"/>
                                 </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KQ9-vX-sck"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KQ9-vX-sck" firstAttribute="trailing" secondItem="JLh-xh-G5V" secondAttribute="trailing" constant="20" id="7bZ-7y-NH4"/>
-                            <constraint firstItem="JLh-xh-G5V" firstAttribute="top" secondItem="KQ9-vX-sck" secondAttribute="top" constant="20" id="8nn-k6-1OK"/>
-                            <constraint firstItem="OLs-cT-3wv" firstAttribute="bottom" secondItem="JLh-xh-G5V" secondAttribute="bottom" id="dMl-VY-4JI"/>
-                            <constraint firstItem="JLh-xh-G5V" firstAttribute="leading" secondItem="OLs-cT-3wv" secondAttribute="trailing" constant="20" id="e0k-7V-QVj"/>
-                            <constraint firstItem="OLs-cT-3wv" firstAttribute="top" secondItem="JLh-xh-G5V" secondAttribute="top" id="fX3-Cf-hXx"/>
-                            <constraint firstItem="OLs-cT-3wv" firstAttribute="leading" secondItem="Ugb-L2-CfZ" secondAttribute="leadingMargin" id="jve-ZB-ptV"/>
+                            <constraint firstItem="KQ9-vX-sck" firstAttribute="trailing" secondItem="GZV-Bf-tmq" secondAttribute="trailing" constant="20" id="GUG-OF-V0u"/>
+                            <constraint firstItem="GZV-Bf-tmq" firstAttribute="top" secondItem="KQ9-vX-sck" secondAttribute="top" constant="20" id="pdc-Hm-P07"/>
+                            <constraint firstItem="GZV-Bf-tmq" firstAttribute="leading" secondItem="KQ9-vX-sck" secondAttribute="leading" constant="20" id="zRo-N7-jMv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5cQ-lR-PKG"/>
                     <connections>
-                        <outlet property="colorView" destination="OLs-cT-3wv" id="sTg-Bq-dul"/>
+                        <outlet property="changeColorButton" destination="wFb-vH-VTp" id="Dg3-8d-taD"/>
                         <outlet property="nameTextField" destination="JLh-xh-G5V" id="uDf-R1-svP"/>
-                        <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="mcv-4q-8Yi"/>
+                        <segue destination="XEw-6X-nLT" kind="show" identifier="CategoryToColor" id="QHr-Ub-0NL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvP-hc-f9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -259,6 +265,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

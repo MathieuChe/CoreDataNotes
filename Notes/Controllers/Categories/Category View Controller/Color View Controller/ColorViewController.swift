@@ -67,8 +67,8 @@ class ColorViewController: UIViewController {
 
         // Configure Sliders
         redSlider.value = Float(r)
-        blueSlider.value = Float(g)
-        greenSlider.value = Float(b)
+        blueSlider.value = Float(b)
+        greenSlider.value = Float(g)
     }
 
     private func setupColorView() {
