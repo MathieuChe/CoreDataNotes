@@ -67,8 +67,8 @@ class ColorViewController: UIViewController {
 
         // Configure Sliders
         redSlider.value = Float(r)
-        blueSlider.value = Float(g)
-        greenSlider.value = Float(b)
+        blueSlider.value = Float(b)
+        greenSlider.value = Float(g)
     }
 
     private func setupColorView() {
@@ -87,9 +87,10 @@ class ColorViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func colorDidChange(sender: UISlider) {
+    
+    @IBAction func colorDidChange(_ sender: UISlider) {
         // Update View
         updateColorView()
     }
-
+    
 }

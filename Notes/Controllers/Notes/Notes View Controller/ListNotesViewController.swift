@@ -168,12 +168,13 @@ class ListNotesViewController: UIViewController {
     private func setupMessageLabel() {
         
         // Configure Message Label
-        messageLabel.text = "You don't have any notes yet."
+        messageLabel.text = "No note yet."
     }
     
     // MARK: -
 
     // Setup the tableView
+    //estimateRowHeight permet d'aider l'ordinateur a combien approximativement les cellules doivent etre
     private func setupTableView() {
         tableView.isHidden = true
         tableView.separatorInset = .zero

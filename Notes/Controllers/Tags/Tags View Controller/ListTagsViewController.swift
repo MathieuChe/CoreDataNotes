@@ -105,7 +105,7 @@ class ListTagsViewController: UIViewController {
     // MARK: -
     private func setupMessageLabel() {
         // Configure Message Label
-        messageLabel.text = "You don't have any tags yet."
+        messageLabel.text = "No tags yet."
     }
 
     // MARK: -
@@ -198,7 +198,7 @@ extension ListTagsViewController: UITableViewDataSource {
         if let containsTag = note?.tags?.contains(tag), containsTag == true {
             cell.nameTagLabel.textColor = .bitterSweet()
         } else {
-            cell.nameTagLabel.textColor = .black
+            cell.nameTagLabel.textColor = .white
         }
     }
 

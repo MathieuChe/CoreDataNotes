@@ -17,7 +17,8 @@ class DetailsCategoryViewController: UIViewController {
     
     // MARK: -
     
-    @IBOutlet weak var colorView: UIView!
+    
+    @IBOutlet private weak var changeColorButton: UIButton!
     @IBOutlet private weak var nameTextField: UITextField!
     
     // MARK: -
@@ -62,20 +63,27 @@ class DetailsCategoryViewController: UIViewController {
     fileprivate func setupView(){
         setupColorView()
         setupNameTextField()
+//        setupBarButtonItems()
     }
     
     
     // MARK: -
     private func setupColorView() {
             // Configure Layer Color View
-            colorView.layer.cornerRadius = CGFloat(colorView.frame.width / 2.0)
+//        changeColorButton.layer.cornerRadius = changeColorButton.frame.height/2
+        // 8.0 CGFloat afin de differencier les float et int
+        changeColorButton.layer.cornerRadius = 8.0
+        //properties resign (la vue ne sortira pas des limites imposées).
+        changeColorButton.layer.masksToBounds = true
+        
+        
 
             updateColorView()
         }
     
     fileprivate func updateColorView() {
             // Configure Color View
-            colorView.backgroundColor = category?.color
+            changeColorButton.backgroundColor = category?.color
         }
     
     // MARK: -
@@ -83,6 +91,22 @@ class DetailsCategoryViewController: UIViewController {
     private func setupNameTextField(){
         // Configure Title Text Field
         nameTextField.text = category?.name
+    }
+    
+    // Create an add bar navigation item button
+//    private func setupBarButtonItems() {
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(sender:)))
+//    }
+    
+    // MARK: - Actions
+    // After creating the add navigation bar item button, performSegue to AddCategoryViewController
+//    @objc func add(sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: segueColorViewController, sender: self)
+//    }
+    
+    //
+    @IBAction func didTapChangeColorButton() {
+        performSegue(withIdentifier: segueColorViewController, sender: self)
     }
 }
 

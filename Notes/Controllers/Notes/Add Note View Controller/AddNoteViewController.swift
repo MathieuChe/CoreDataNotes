@@ -27,6 +27,11 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Add Note"
+        
+        //Define the contentsView's borders
+        contentsTextView.layer.borderColor = UIColor.black.cgColor
+        contentsTextView.layer.borderWidth = 1
+        contentsTextView.backgroundColor = .white
     }
     
     override func viewDidAppear(_ animated: Bool) {

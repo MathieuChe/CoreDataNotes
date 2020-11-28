@@ -30,11 +30,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" rowHeight="114" id="IFw-Up-A98" customClass="NoteTableViewCell" customModule="Notes" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="114"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" rowHeight="64" id="IFw-Up-A98" customClass="NoteTableViewCell" customModule="Notes" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFw-Up-A98" id="snB-qS-gD6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keB-MW-t5S" userLabel="titleLabel">
@@ -50,7 +50,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kla-hK-oHn" userLabel="contentsLabel">
-                                                            <rect key="frame" x="0.0" y="43" width="414" height="71"/>
+                                                            <rect key="frame" x="0.0" y="43" width="414" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" systemColor="systemGray2Color"/>
                                                             <nil key="highlightedColor"/>
@@ -125,35 +125,35 @@
         <!--Add Note View Controller-->
         <scene sceneID="5yb-FW-4Wz">
             <objects>
-                <viewController id="cF6-DT-4I7" customClass="AddNoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController id="cF6-DT-4I7" customClass="AddNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zme-6w-oFB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a category to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a note to add" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIy-0H-kWJ">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zcv-sY-g64">
                                 <rect key="frame" x="20" y="162" width="374" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="liv-hH-uOd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zcv-sY-g64" firstAttribute="top" secondItem="PIy-0H-kWJ" secondAttribute="bottom" constant="20" id="0Lk-15-7qP"/>
                             <constraint firstItem="PIy-0H-kWJ" firstAttribute="leading" secondItem="liv-hH-uOd" secondAttribute="leading" constant="20" id="5l5-az-ZHO"/>
                             <constraint firstItem="liv-hH-uOd" firstAttribute="trailing" secondItem="Zcv-sY-g64" secondAttribute="trailing" constant="20" id="MYy-pa-wF1"/>
                             <constraint firstItem="PIy-0H-kWJ" firstAttribute="top" secondItem="liv-hH-uOd" secondAttribute="top" constant="20" id="Mg1-FN-q0X"/>
                             <constraint firstItem="liv-hH-uOd" firstAttribute="trailing" secondItem="PIy-0H-kWJ" secondAttribute="trailing" constant="20" id="N7Q-Sz-0X4"/>
                             <constraint firstItem="Zcv-sY-g64" firstAttribute="bottom" secondItem="liv-hH-uOd" secondAttribute="bottom" id="nl0-Qb-uoo"/>
                             <constraint firstItem="Zcv-sY-g64" firstAttribute="leading" secondItem="liv-hH-uOd" secondAttribute="leading" constant="20" id="tC4-K8-bls"/>
-                            <constraint firstItem="Zcv-sY-g64" firstAttribute="top" secondItem="PIy-0H-kWJ" secondAttribute="bottom" constant="20" id="zlX-XB-2Io"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y7d-Aw-LjF">
@@ -193,7 +193,7 @@
         <!--Details Note View Controller-->
         <scene sceneID="5Hx-Nq-e4W">
             <objects>
-                <viewController id="nrh-Rg-5yw" customClass="DetailsNoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController id="nrh-Rg-5yw" customClass="DetailsNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6r9-Q1-lzp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
